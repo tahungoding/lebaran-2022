@@ -11,6 +11,8 @@ import BengkelMap from '../pages/BengkelMap'
 import MiniMarketMap from '../pages/MiniMarketMap'
 import AtmMap from '../pages/AtmMap'
 
+import DevMap from '../pages/DevMap'
+
 
 
 export default function Routing() {
@@ -53,7 +55,9 @@ export default function Routing() {
                 <AtmMap />
             </Route>
 
-
+            <Route path="/map">
+                <DevMap />
+            </Route>
 
         </Switch>
     )
