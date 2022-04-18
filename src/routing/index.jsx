@@ -17,6 +17,8 @@ import TerminalMap from '../pages/TerminalMap'
 import WisataMap from '../pages/WisataMap'
 import OleholehMap from '../pages/OleholehMap'
 
+import DevMap from '../pages/DevMap'
+
 
 
 export default function Routing(props) {
@@ -74,7 +76,9 @@ export default function Routing(props) {
                 <OleholehMap />
             </Route>
 
-
+            <Route path="/map">
+                <DevMap />
+            </Route>
 
         </Switch>
     )

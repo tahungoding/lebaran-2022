@@ -3,7 +3,7 @@ import React from 'react'
 export default function Content(props) {
     return (
 
-        <div className="lg:h-[150px] lg:w-[250px] bg-white shadow-2xl rounded-xl items-center justify-center text-center xs:inline-grid p-3 mx-auto md:mt-11 sm:mt-5 xs:mb-5 xs:-mt-2 relative group hover:bg-[#00A859]
+        <div className="lg:h-[150px] lg:w-[250px] bg-white shadow-lg rounded-xl items-center justify-center text-center xs:inline-grid p-3 mx-auto md:mt-11 sm:mt-5 xs:mb-5 xs:-mt-2 relative group hover:bg-[#00A859] 
                 transition duration-300 cursor-pointer hover:shadow-inner hover:shadow-green-300 md:h-[100px] md:w-[170px] sm:h-[110px] sm:w-[130px] xs:h-[90px] xs:w-[115px]
                 ss:w-full ss:h-[100px] ss:mb-5 ss:flex 
                 ">

@@ -4,9 +4,9 @@ import Content from '../layouts/Content'
 
 export default function InfoLalulintas() {
     return (
-        <div className='lg:mt-5 sm:mt-0 lg:mx-auto md:container ' id='infolalulintas'>
+        <div className='lg:mt-5 sm:mt-0 xm:mt-3 lg:mx-auto md:container ' id='infolalulintas'>
 
-            <div className="container justify-center text-center lg:text-3xl xs:text-2xl  ss:text-md ss:-mt-4 font-sans font-medium
+            <div className="container justify-center text-center lg:text-3xl xs:text-2xl  ss:text-lg ss:-mt-4 font-sans font-medium
                 text-[#3F3D56]">
                 Informasi Lalulintas
                 <p className='lg:text-xl md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans leading-7 h-14 md:w-[509px] mx-auto
@@ -15,7 +15,7 @@ export default function InfoLalulintas() {
 
             </div>
 
-            <div className='xs:flex justify-center 2xl:gap-32 xl:gap-16 lg:gap-5 md:gap-4 sm:gap-8 xs:gap-3 xm:inline-block xm:mx-auto xm:container xm:gap-y-8 
+            <div className='xs:flex justify-center 2xl:gap-32 xl:gap-16 lg:gap-5 md:gap-4 sm:gap-8 xs:gap-3 xm:inline-block xm:mx-auto xm:container xm:gap-y-8 ss:mx-auto ss:container ss:gap-y-8 ss:px-6 
             ' >
 
                 <Link to="/lokasi-macet">
