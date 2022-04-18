@@ -14,7 +14,7 @@ export default function InfoLalulintas() {
 
             <div className='flex justify-center 2xl:gap-32 xl:gap-16 lg:gap-5 md:gap-4 sm:gap-8 xs:gap-3' >
 
-                <a href="/lokasimacet">
+                <a href="./lokasimacet">
                     <Content
                         content={{
                             img: "/assets/img/fotomacet.png",
@@ -22,7 +22,7 @@ export default function InfoLalulintas() {
                         }}
                     />
                 </a>
-                <a href="/lokasirawan">
+                <a href="./lokasirawan">
                     <Content
                         content={{
                             img: "/assets/img/fotokecelakaan.png",
@@ -31,7 +31,7 @@ export default function InfoLalulintas() {
                     />
 
                 </a>
-                <a href="/jalanalternatif">
+                <a href="./jalanalternatif">
                     <Content
                         content={{
                             img: "/assets/img/jalanalternatif.png",
@@ -39,7 +39,7 @@ export default function InfoLalulintas() {
                         }}
                     />
                 </a>
-                <a href="/kondisijalan">
+                <a href="./kondisijalan">
                     <Content
                         content={{
                             img: "/assets/img/kondisijalan.png",

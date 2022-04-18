@@ -17,7 +17,7 @@ export default function Sarana() {
             <div className='flex justify-center 2xl:gap-32 xl:gap-16 lg:gap-5 md:gap-4 sm:gap-8 xs:gap-3'>
 
 
-                <a href="/spbu">
+                <a href="./spbu">
                     <Content
                         content={{
                             img: "/assets/img/spbu.png",
@@ -26,7 +26,7 @@ export default function Sarana() {
 
                     />
                 </a>
-                <a href="/bengkel">
+                <a href="./bengkel">
                     <Content
                         content={{
                             img: "/assets/img/bengkel.png",
@@ -36,7 +36,7 @@ export default function Sarana() {
                     />
                 </a>
 
-                <a href="/minimarket">
+                <a href="./minimarket">
                     <Content
                         content={{
                             img: "/assets/img/minimarket.png",
@@ -46,7 +46,7 @@ export default function Sarana() {
                     />
                 </a>
 
-                <a href="/atm">
+                <a href="./atm">
                     <Content
                         content={{
                             img: "/assets/img/atm.png",
@@ -60,7 +60,7 @@ export default function Sarana() {
             <div className="flex justify-center 2xl:gap-32 md:gap-4 xl:gap-16 sm:gap-8 xs:gap-3">
                 <div className="">
 
-                    <a href="/masjid">
+                    <a href="./masjid">
                         <Content
                             content={{
                                 img: "/assets/img/masjid.png",
@@ -72,7 +72,7 @@ export default function Sarana() {
                 <div className="">
 
 
-                    <a href="/terminal">
+                    <a href="./terminal">
                         <Content
                             content={{
                                 img: "/assets/img/terminal.png",

@@ -4,7 +4,7 @@ export default function Navbar() {
     return (
         <nav class="flex justify-center py-4 bg-white drop-shadow-lg relative xs:h-14">
             <div class="flex items-center">
-                <a href="/">
+                <a href=".">
                     <img src="/assets/img/logo-smd.png" alt="" className='absolute lg:left-28 md:top-2 md:left-14 sm:left-4 sm:top-0.5 xs:left-5 xs:h-10 xs:top-2' />
                 </a>
             </div>

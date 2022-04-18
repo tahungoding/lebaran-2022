@@ -16,7 +16,7 @@ export default function InfoPariwisata() {
 
 
                 <div>
-                    <a exact href="/tempatwisata">
+                    <a exact href="./tempatwisata">
                         <Content
                             content={{
                                 img: "/assets/img/tempatwisata.png",
@@ -26,7 +26,7 @@ export default function InfoPariwisata() {
                     </a>
                 </div>
                 <div>
-                    <a href="/oleholehsumedang">
+                    <a href="./oleholehsumedang">
 
                         <Content
                             content={{
