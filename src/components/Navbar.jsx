@@ -18,12 +18,7 @@ export default function Navbar() {
                 <Link activeClass="active" to="pariwisata" spy={true} smooth={true} offset={500} duration={500} className="hover:text-green-600">Pariwisata</Link>
 
             </div>
-            <div class="hidden items-center space-x-2">
-                <a class="px-4 py-2 text-blue-100 bg-blue-800 rounded-md">
-                    Sign in
-                </a>
 
-            </div>
         </nav>
 
     )
