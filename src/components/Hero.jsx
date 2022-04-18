@@ -1,12 +1,38 @@
-import React from 'react'
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper";
 import headerImg from '../../assets/img/Header.png'
 
 export default function Hero() {
     return (
-        <div className='flex justify-center py-5'>
 
-            <img src={headerImg} alt="" />
+        <>
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
 
-        </div>
+                }}
+
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper "
+            >
+                <SwiperSlide><img src={headerImg} alt="" className="ml-3" /></SwiperSlide>
+                <SwiperSlide><img src={headerImg} alt="" className="ml-3" /></SwiperSlide>
+                <SwiperSlide><img src={headerImg} alt="" className="ml-3" /></SwiperSlide>
+                <SwiperSlide><img src={headerImg} alt="" className="ml-3" /></SwiperSlide>
+                <SwiperSlide><img src={headerImg} alt="" className="ml-3" /></SwiperSlide>
+            </Swiper>
+        </>
+
+
     )
 }

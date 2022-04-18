@@ -10,12 +10,18 @@ import SpbuMap from '../pages/SpbuMap'
 import BengkelMap from '../pages/BengkelMap'
 import MiniMarketMap from '../pages/MiniMarketMap'
 import AtmMap from '../pages/AtmMap'
+import MasjidMap from '../pages/MasjidMap'
+import TerminalMap from '../pages/TerminalMap'
+
+
+import WisataMap from '../pages/WisataMap'
+import OleholehMap from '../pages/OleholehMap'
 
 import DevMap from '../pages/DevMap'
 
 
 
-export default function Routing() {
+export default function Routing(props) {
     return (
         <Switch>
             <Route exact path="/">
@@ -24,19 +30,19 @@ export default function Routing() {
 
             {/* informasi lalulintas */}
 
-            <Route path="/lokasimacet">
-                <LokasiMacetMap />
-            </Route>
+            <Route path="/lokasi-macet" element={<LokasiMacetMap />} />
 
-            <Route path="/rawankecelakaan">
+
+
+            <Route path="/rawan-kecelakaan">
                 <LokasiRawanMap />
             </Route>
 
-            <Route path="/jalanalternatif">
+            <Route path="/jalanal-ternatif">
                 <JalanAlternatifMap />
             </Route>
 
-            <Route path="/lokasimacet">
+            <Route path="/kondisi-jalan">
                 <KondisiJalanMap />
             </Route>
 
@@ -53,6 +59,21 @@ export default function Routing() {
             </Route>
             <Route path="/atm">
                 <AtmMap />
+            </Route>
+            <Route path="/masjid">
+                <MasjidMap />
+            </Route>
+            <Route path="/terminal">
+                <TerminalMap />
+            </Route>
+
+            {/* pariwisata */}
+
+            <Route path="/wisata">
+                <WisataMap />
+            </Route>
+            <Route path="/oleh-oleh">
+                <OleholehMap />
             </Route>
 
             <Route path="/map">
