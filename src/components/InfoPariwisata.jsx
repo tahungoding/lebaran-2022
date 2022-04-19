@@ -5,7 +5,7 @@ import olehOleh from '../../assets/img/oleholeh.png'
 
 export default function InfoPariwisata() {
     return (
-        <div className='md:mt-16 sm:mt-10 xm:mt-5 xl:container' id='pariwisata'>
+        <div className='md:mt-5 sm:mt-10 xm:mt-5 ' id='pariwisata'>
 
             <div className="container justify-center text-center lg:text-3xl md:text-2xl font-sans font-medium
         text-[#3F3D56] ss:text-lg">
@@ -15,9 +15,12 @@ export default function InfoPariwisata() {
 
             </div>
 
-            <div className='xs:flex justify-center 2xl:gap-32 xl:gap-16 lg:gap-5 md:gap-4 sm:gap-8 xs:gap-3 ss:inline-block  ss:container ss:gap-y-8 ss:translate-x-1 ss:px-6 '>
-
-                <div>
+            <div className="min-h-full flex justify-center items-center container">
+                    <div className="ss:flex-1 sm:flex-none min-w-2xl mx-auto ">
+                        <div className='grid ss:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:gap-x-5 xl:grid-cols-2 xl:gap-10
+                       lg:grid-cols-2 lg:gap-x-30
+                       
+                       '>
                     <a exact href="/wisata">
                         <Content
                             content={{
@@ -26,8 +29,7 @@ export default function InfoPariwisata() {
                             }}
                         />
                     </a>
-                </div>
-                <div>
+               
                     <a href="/oleh-oleh">
 
                         <Content
@@ -37,6 +39,7 @@ export default function InfoPariwisata() {
                             }}
                         />
                     </a>
+                </div>
                 </div>
             </div>
 

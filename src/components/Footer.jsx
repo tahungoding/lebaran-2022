@@ -4,6 +4,8 @@ import githubIcon from '../../assets/img/github.png'
 
 export default function Footer() {
     return (
+
+        
         <div className='bg-[#00A859] sm:h-[168px] w-full xs:h-[100px] sm:mt-12 ss:mt-5 items-center justify-center text-center inline-flex'>
 
             <div className='inline-grid text-center'>

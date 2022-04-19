@@ -7,13 +7,13 @@ export default function Navbar() {
 
 
     return (
-        <nav class="flex justify-center py-4 bg-white drop-shadow-lg relative xs:h-14 ">
+        <nav class="flex justify-center py-4 bg-white drop-shadow-lg relative xs:h-14 xl:h-24 w-full">
             <div class="flex items-center">
                 <a href="#">
-                    <img src="/assets/img/logo-smd.png" alt="" className='absolute lg:left-28 md:top-2 md:left-14 sm:left-4 sm:top-0.5 xs:left-5 xs:h-10 xm:top-2 xm:h-10 xm:left-8 ss:h-10 ss:top-2' />
+                    <img src="/assets/img/logo-smd.png" alt="" className='absolute lg:left-28 md:top-2 md:left-14 sm:left-4 sm:top-0.5 xs:left-5 xs:h-10 xm:top-2 xm:h-10 xm:left-8 ss:h-10 ss:top-2 xl:h-16 xl:w-16 xl:top-4' />
                 </a>
             </div>
-            <div class="items-center md:text-lg text-gray-500 font-sans lg:text-xl space-x-8 lg:flex cursor-pointer xs:space-x-4 xm:invisible xs:visible ss:invisible">
+            <div class="items-center md:text-lg text-gray-500 font-sans lg:text-xl xl:text-2xl space-x-8 lg:flex xl:space-x-11 cursor-pointer xs:space-x-4 xm:invisible xs:visible ss:invisible">
 
 
                 <NavLink className=" hover:text-green-600" to="/lokasi-rawan">Sarana Prasarana</NavLink>
@@ -31,13 +31,13 @@ export default function Navbar() {
 
 
                 <Menu as={'div'} className="relative ">
-                    <Menu.Button className="flex items-center gap-x-2 absolute xm:left-0 -top-3 ss:-left-5 hover:bg-transparent text-black">
+                    <Menu.Button className="flex items-center gap-x-2 absolute xm:left-0 -top-3 ss:-left-5 hover:bg-transparent text-black z-30">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </Menu.Button>
 
-                    <Menu.Items as={'div'} className="bg-white absolute -left-48 -top-5 py-1 rounded-lg w-56 overflow-hidden mt-8 shadow-xl ">
+                    <Menu.Items as={'div'} className="bg-white absolute -left-48 -top-5 py-1 rounded-lg w-56 overflow-hidden mt-8 shadow-xl z-50">
 
 
                         <DropdownLink href="#">
