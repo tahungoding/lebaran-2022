@@ -11,12 +11,13 @@ import { Link } from 'react-router-dom'
 export default function Sarana() {
     return (
 
-        <div>
+        <div id="sarana">
             <div className="container justify-center text-center lg:text-3xl md:text-2xl font-sans font-medium
             text-[#3F3D56] ss:text-lg my-7">
                     Sarana Prasarana
                     <p className='lg:text-xl md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans leading-7 h-14 md:w-[509px] mx-auto
-                     ss:text-[12px] ss:leading-4 mt-2'>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere viverra sit est egestas tristique.</p>
+                     ss:text-[12px] ss:leading-4 mt-2'>  
+                     - </p>
                 </div>
 
 

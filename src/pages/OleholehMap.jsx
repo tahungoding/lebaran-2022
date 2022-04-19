@@ -5,6 +5,7 @@ import { Container, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import * as L from "leaflet";
 import olehIcon from '../../assets/Maps/icon/oleh.svg'
+import { Link } from 'react-router-dom'
 
 function createIcon(url) {
   return new L.Icon({
@@ -14,6 +15,10 @@ function createIcon(url) {
 }
 
 export default function OleholehMap() {
+
+    React.useEffect(() => {
+        document.title = "Oleh-oleh - Sistem Informasi Idul Fitri"
+     }, []);
 
     let arr_data = olehData.default;
     let arr = []
@@ -54,11 +59,15 @@ export default function OleholehMap() {
             <Typography variant="h5" component="h2">
                 Peta sebaran Oleh-Oleh di Kabupaten Sumedang
             </Typography>
-            <Button href="/" color="success" variant="outlined" style={{
+            <Link to="/">
+                <Button color="success" variant="outlined" style={{
             marginTop: '20px',
             marginBottom: '20px'
-        }}><HomeIcon/>
-             Back to Home</Button>
+        }}>
+<HomeIcon/>
+             
+        </Button>
+                </Link>
             <MapContainer center={[-6.8387022, 107.9089463]} zoom={12} scrollWheelZoom={true} id="mapid" style={{ height: "100vh" }}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

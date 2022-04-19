@@ -51,14 +51,14 @@ export default function DevMap() {
             marginTop: '20px',
             marginBottom: '20px'
         }}>
-            {/* <Typography variant="h5" component="h2">
+            <Typography variant="h5" component="h2">
                 Peta sebaran SPBU di Kabupaten Sumedang
             </Typography>
             <Button href="/" color="success" variant="outlined" style={{
             marginTop: '20px',
             marginBottom: '20px'
         }}><HomeIcon/>
-             Back to Home</Button>
+             </Button>
              <MapContainer center={[-6.8387022, 107.9089463]} zoom={13} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -76,7 +76,7 @@ export default function DevMap() {
                     </Popup>
                 </Marker>
             ))}
-        </MapContainer> */}
+        </MapContainer>
         <Map/>
         </Container>
     )

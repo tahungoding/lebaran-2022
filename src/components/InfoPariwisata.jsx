@@ -12,7 +12,7 @@ export default function InfoPariwisata() {
         text-[#3F3D56] ss:text-lg leading-10 my-7">
                 Informasi Pariwisata
                 <p className='lg:text-xl mt-2 md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans h-14 md:w-[509px] mx-auto
-                 ss:text-[12px] ss:leading-4 '>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere viverra sit est egestas tristique.</p>
+                 ss:text-[12px] ss:leading-4 '> - </p>
 
             </div>
 

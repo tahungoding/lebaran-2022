@@ -1,8 +1,11 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import * as terminalData from '../../assets/data/terminal.json'
+import { Container, Button, Typography } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
 import * as L from "leaflet";
 import terminalIcon from '../../assets/Maps/icon/terminal.svg'
+import { Link } from 'react-router-dom'
 
 function createIcon(url) {
   return new L.Icon({
@@ -11,7 +14,11 @@ function createIcon(url) {
   });
 }
 
-export default function terminalMap() {
+export default function TerminalMap() {
+
+    React.useEffect(() => {
+        document.title = "Terminal - Sistem Informasi Idul Fitri"
+     }, []);
 
     let arr_data = terminalData.default;
     let arr = []
@@ -45,23 +52,40 @@ export default function terminalMap() {
       }
 
     return (
-        <MapContainer center={[-6.8387022, 107.9089463]} zoom={13} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
-            <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {arr.map((marker, i) => (
-                <Marker 
-                key={i} 
-                position={[marker.lat, marker.lng]}
-                icon={getMarkerIcon(i)}
-                onclick={handleClick}
-                >
-                    <Popup>
-                        <b>{marker.title}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
-                    </Popup>
-                </Marker>
-            ))}
-        </MapContainer>
+        <Container maxWidth="xl" style={{
+            marginTop: '20px',
+            marginBottom: '20px'
+        }}>
+            <Typography variant="h5" component="h2">
+                Peta sebaran Terminal di Kabupaten Sumedang
+            </Typography>
+            <Link to="/">
+                <Button color="success" variant="outlined" style={{
+            marginTop: '20px',
+            marginBottom: '20px'
+        }}>
+<HomeIcon/>
+             
+        </Button>
+                </Link>
+            <MapContainer center={[-6.8387022, 107.9089463]} zoom={12} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
+                <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                {arr.map((marker, i) => (
+                    <Marker 
+                    key={i} 
+                    position={[marker.lat, marker.lng]}
+                    icon={getMarkerIcon(i)}
+                    onclick={handleClick}
+                    >
+                        <Popup>
+                            <b>{marker.title}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
+                        </Popup>
+                    </Marker>
+                ))}
+            </MapContainer>
+        </Container>
     )
 }

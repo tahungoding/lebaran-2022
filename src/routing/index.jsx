@@ -38,7 +38,7 @@ export default function Routing(props) {
                 <LokasiRawanMap />
             </Route>
 
-            <Route path="/jalanal-ternatif">
+            <Route path="/jalan-alternatif">
                 <JalanAlternatifMap />
             </Route>
 

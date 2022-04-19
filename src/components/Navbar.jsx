@@ -1,26 +1,33 @@
 import { Menu } from '@headlessui/react';
 import React from 'react';
+import ReactDOM from 'react-dom'
 import { Link, NavLink } from 'react-router-dom';
 import DropdownLink from './DropdownLink';
+import logoImg from '../../assets/img/logo-smd.png'
+
 
 export default function Navbar() {
 
+    function handleScroll(id){
+        const item = ReactDOM.findDOMNode(this.refs[id]);
+        window.scrollTo(item.offsetTop);
+    }
 
     return (
         <nav class="flex justify-center py-4 bg-white drop-shadow-lg  relative xs:h-14 xl:h-16 2xl:h-24 w-full">
             <div class="flex items-center">
                 <a href="#">
-                    <img src="/assets/img/logo-smd.png" alt="" className='absolute lg:left-28 md:top-2 md:left-14 sm:left-4 sm:top-0.5 xs:left-5 xs:h-10 xm:top-2 xm:h-10 xm:left-8 ss:h-10 ss:top-2 lg:h-12 lg:w-12 xl:h-12 xl:w-12 xl:top-2' />
+                    <img src={logoImg} alt="" className='absolute lg:left-28 md:top-2 md:left-14 sm:left-4 sm:top-0.5 xs:left-5 xs:h-10 xm:top-2 xm:h-10 xm:left-8 ss:h-10 ss:top-2 lg:h-12 lg:w-12 xl:h-12 xl:w-12 xl:top-2' />
                 </a>
             </div>
             <div class="items-center md:text-lg text-gray-500 font-sans lg:text-xl xl:text-2xl space-x-8 lg:flex xl:space-x-11 cursor-pointer xs:space-x-4 xm:invisible xs:visible ss:invisible">
 
 
-            <Link className=" hover:text-green-600" to="/lokasi-rawan">Sarana Prasarana</Link>
+            <a className="hover:text-green-600 anchor-link" href="#infolalulintas">Lalu Lintas</a>
 
-                <Link activeClass="active" to="infolalulintas" spy={true} smooth={true} offset={-50} duration={500} className="hover:text-green-600 ">Lalu Lintas</Link>
+                <a activeClass="active" href="#sarana" spy={true} smooth={true} offset={-50} duration={500} className="hover:text-green-600 ">Sarana Prasarana</a>
 
-                <Link activeClass="active" to="pariwisata" spy={true} smooth={true} offset={500} duration={500} className="hover:text-green-600">Pariwisata</Link>
+                <a activeClass="active" href="#pariwisata" spy={true} smooth={true} offset={500} duration={500} className="hover:text-green-600">Pariwisata</a>
 
             </div>
             <div className=''>

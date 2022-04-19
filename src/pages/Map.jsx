@@ -23,8 +23,8 @@ const Map = () => {
   const [routingMachine, setRoutingMachine] = useState(null)
 
 // Start-End point for the routing machine
-  const [start, setStart] = useState([38.9072, -77.0369])
-  const [end, setEnd] = useState([37.7749, -122.4194])
+  const [start, setStart] = useState([-6.835092313386683, 107.93029142568805])
+  const [end, setEnd] = useState([-6.86713421052904, 107.88698984450613])
 
 // Routing machine ref
   const RoutingMachineRef = useRef(null)
@@ -43,6 +43,7 @@ const Map = () => {
           ],
         },
         waypoints: [start, end],
+        
       })
       setRoutingMachine(RoutingMachineRef.current)
     }
@@ -57,24 +58,13 @@ const Map = () => {
   }, [routingMachine, start, end])
 
 // Update start and end points on button click:
-  const handleClick = () => {
-    if (start[0] === 38.9072) {
-      setStart([40.7128, -74.0060])
-      setEnd([47.6062, -122.3321])
-    }
-    if (start[0] === 40.7128) {
-      setStart([38.9072, -77.0369])
-      setEnd([37.7749, -122.4194])
-    }
-  }
 
   return (
     <>
-      <Button variant="contained" color="primary" onClick={handleClick}>Click To Change Waypoints</Button>
       <MapContainer
-        center={[37.0902, -95.7129]}
+        center={[-6.8387022, 107.9089463]}
         zoom={3}
-        zoomControl={false}
+        scrollWheelZoom={false}
         style={{ height: "100vh", width: "100%", padding: 0 }}
         // Set the map instance to state when ready:
         whenCreated={map => setMap(map)}
