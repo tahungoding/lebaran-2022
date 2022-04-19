@@ -23,13 +23,13 @@ export default function Hero() {
                 }}
 
                 modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper "
+                className="mySwiper -z-30"
             >
-                <SwiperSlide><img src={headerImg} alt="" className="ml-3 mr-3" /></SwiperSlide>
-                <SwiperSlide><img src={headerImg} alt="" className="ml-3 mr-3" /></SwiperSlide>
-                <SwiperSlide><img src={headerImg} alt="" className="ml-3 mr-3" /></SwiperSlide>
-                <SwiperSlide><img src={headerImg} alt="" className="ml-3 mr-3" /></SwiperSlide>
-                <SwiperSlide><img src={headerImg} alt="" className="ml-3 mr-3" /></SwiperSlide>
+                <SwiperSlide><img src={headerImg} alt="" className="w-full -z-30" /></SwiperSlide>
+                <SwiperSlide><img src={headerImg} alt="" className="w-full -z-30" /></SwiperSlide>
+                <SwiperSlide><img src={headerImg} alt="" className="w-full -z-30" /></SwiperSlide>
+                <SwiperSlide><img src={headerImg} alt="" className="w-full -z-30" /></SwiperSlide>
+                <SwiperSlide><img src={headerImg} alt="" className="w-full -z-30" /></SwiperSlide>
             </Swiper>
         </>
 

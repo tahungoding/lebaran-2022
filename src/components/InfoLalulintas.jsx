@@ -8,7 +8,7 @@ import kondisiJalan from '../../assets/img/kondisijalan.png'
 
 export default function InfoLalulintas() {
     return (
-        <div className='lg:mt-5 sm:mt-0 xm:mt-3 lg:mx-auto md:container ' id='infolalulintas'>
+        <div className='ss:mt-8' id='infolalulintas'>
 
             <div className="container justify-center text-center lg:text-3xl xs:text-2xl  ss:text-lg ss:-mt-4 font-sans font-medium
                 text-[#3F3D56]">
@@ -19,8 +19,10 @@ export default function InfoLalulintas() {
 
             </div>
 
-            <div className='xs:flex justify-center 2xl:gap-32 xl:gap-16 lg:gap-5 md:gap-4 sm:gap-8 xs:gap-3 xm:inline-block xm:mx-auto xm:container xm:gap-y-8 ss:mx-auto ss:container ss:gap-y-8 ss:px-6 
-            ' >
+            <div className="min-h-full flex justify-center items-center container ">
+                    <div className="ss:flex-1 sm:flex-none min-w-2xl mx-auto ">
+                        <div className='grid ss:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:gap-x-3 xl:grid-cols-4 xl:gap-2
+                       lg:grid-cols-4 lg:gap-x-5 '>
 
                 <Link to="/lokasi-macet">
                     <Content
@@ -57,6 +59,8 @@ export default function InfoLalulintas() {
                         }}
                     />
                 </a>
+            </div>
+            </div>
             </div>
 
 
