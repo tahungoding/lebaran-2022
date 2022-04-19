@@ -2,16 +2,17 @@ import React from 'react'
 import Content from '../layouts/Content'
 import tempatWisata from '../../assets/img/tempatwisata.png'
 import olehOleh from '../../assets/img/oleholeh.png'
+import { Link } from 'react-router-dom'
 
 export default function InfoPariwisata() {
     return (
-        <div className='md:mt-5 sm:mt-10 xm:mt-5 ' id='pariwisata'>
+        <div className='md:mt-8 sm:mt-10 xm:mt-5' id='pariwisata'>
 
             <div className="container justify-center text-center lg:text-3xl md:text-2xl font-sans font-medium
-        text-[#3F3D56] ss:text-lg">
+        text-[#3F3D56] ss:text-lg leading-10 my-7">
                 Informasi Pariwisata
-                <p className='lg:text-xl md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans leading-7 h-14 md:w-[509px] mx-auto
-                 ss:text-[12px] ss:leading-4'>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere viverra sit est egestas tristique.</p>
+                <p className='lg:text-xl mt-2 md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans h-14 md:w-[509px] mx-auto
+                 ss:text-[12px] ss:leading-4 '>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Posuere viverra sit est egestas tristique.</p>
 
             </div>
 
@@ -21,16 +22,16 @@ export default function InfoPariwisata() {
                        lg:grid-cols-2 lg:gap-x-30
                        
                        '>
-                    <a exact href="/wisata">
+                    <Link to="/wisata">
                         <Content
                             content={{
                                 img: tempatWisata,
                                 title: "Tempat Wisata",
                             }}
                         />
-                    </a>
+                    </Link>
                
-                    <a href="/oleh-oleh">
+                    <Link to="/oleh-oleh">
 
                         <Content
                             content={{
@@ -38,7 +39,7 @@ export default function InfoPariwisata() {
                                 title: "Oleh - oleh",
                             }}
                         />
-                    </a>
+                    </Link>
                 </div>
                 </div>
             </div>
