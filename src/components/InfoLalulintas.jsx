@@ -29,7 +29,7 @@ export default function InfoLalulintas() {
                     <Content
                         content={{
                             img: fotoMacet,
-                            title: "Lokasi Macet",
+                            title: "Rawan Macet",
                         }}
                     />
                 </Link>
@@ -52,11 +52,43 @@ export default function InfoLalulintas() {
                         }}
                     />
                 </Link>
+                <Link to="/macet-realtime">
+                    <Content
+                        content={{
+                            img: kondisiJalan,
+                            title: "Macet Realtime",
+                        }}
+                    />
+                </Link>
+                <Link to="/kecelakaan-realtime">
+                    <Content
+                        content={{
+                            img: kondisiJalan,
+                            title: "Kecelakaan Realtime",
+                        }}
+                    />
+                </Link>
                 <Link to="/kondisi-jalan">
                     <Content
                         content={{
                             img: kondisiJalan,
                             title: "Kondisi Jalan",
+                        }}
+                    />
+                </Link>
+                <Link to="/cctv">
+                    <Content
+                        content={{
+                            img: kondisiJalan,
+                            title: "CCTV",
+                        }}
+                    />
+                </Link>
+                <Link to="/dashboard-atcs">
+                    <Content
+                        content={{
+                            img: kondisiJalan,
+                            title: "Dashboard ATCS",
                         }}
                     />
                 </Link>
