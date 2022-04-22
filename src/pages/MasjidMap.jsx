@@ -17,7 +17,7 @@ function createIcon(url) {
 export default function MasjidMap() {
 
     React.useEffect(() => {
-        document.title = "Masjid - Sistem Informasi Idul Fitri"
+        document.title = "Masjid - Sumedang LRT - Lebaran Realtime"
      }, []);
 
     let arr_data = masjidData.default;

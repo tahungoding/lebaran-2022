@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import { Link, NavLink } from 'react-router-dom';
 import DropdownLink from './DropdownLink';
-import logoImg from '../../assets/img/logo-smd.png'
+import logoImg from '../../assets/img/logo-letter.png'
 
 
 export default function Navbar() {

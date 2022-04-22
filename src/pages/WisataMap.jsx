@@ -3,7 +3,7 @@ import React from 'react'
 export default function WisataMap() {
 
     React.useEffect(() => {
-        document.title = "Tempat Wisata - Sistem Informasi Idul Fitri"
+        document.title = "Tempat Wisata - Sumedang LRT - Lebaran Realtime"
      }, []);
 
     return (

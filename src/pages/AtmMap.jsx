@@ -17,7 +17,7 @@ function createIcon(url) {
 export default function AtmMap() {
 
     React.useEffect(() => {
-        document.title = "ATM - Sistem Informasi Idul Fitri"
+        document.title = "ATM - Sumedang LRT - Lebaran Realtime"
      }, []);
 
     let arr_data = atmData.default;

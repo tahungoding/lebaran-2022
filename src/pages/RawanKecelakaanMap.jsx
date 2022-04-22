@@ -14,10 +14,10 @@ function createIcon(url) {
   });
 }
 
-export default function KecelakaanMap() {
+export default function RawanKecelakaanMap() {
 
     React.useEffect(() => {
-        document.title = "Rawan Kecelakaan - Sistem Informasi Idul Fitri"
+        document.title = "Rawan Kecelakaan - Sumedang LRT - Lebaran Realtime"
      }, []);
 
     let arr_data = kecelakaanData.default;

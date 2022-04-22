@@ -17,7 +17,7 @@ function createIcon(url) {
 export default function MinimarketMap() {
 
     React.useEffect(() => {
-        document.title = "Mini Market - Sistem Informasi Idul Fitri"
+        document.title = "Mini Market - Sumedang LRT - Lebaran Realtime"
      }, []);
 
     let arr_data = minimarketData.default;

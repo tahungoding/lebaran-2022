@@ -17,7 +17,7 @@ function createIcon(url) {
 export default function TerminalMap() {
 
     React.useEffect(() => {
-        document.title = "Terminal - Sistem Informasi Idul Fitri"
+        document.title = "Terminal - Sumedang LRT - Lebaran Realtime"
      }, []);
 
     let arr_data = terminalData.default;

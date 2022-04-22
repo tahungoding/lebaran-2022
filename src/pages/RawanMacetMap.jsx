@@ -1,10 +1,10 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import * as olehData from '../../assets/data/oleh.json'
+import * as kecelakaanData from '../../assets/data/kecelakaan.json'
 import { Container, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import * as L from "leaflet";
-import olehIcon from '../../assets/Maps/icon/oleh.svg'
+import kecelakaanIcon from '../../assets/Maps/icon/kecelakaan.svg'
 import { Link } from 'react-router-dom'
 
 function createIcon(url) {
@@ -14,13 +14,13 @@ function createIcon(url) {
   });
 }
 
-export default function OleholehMap() {
+export default function RawanMacetMap() {
 
     React.useEffect(() => {
-        document.title = "Oleh-oleh - Sumedang LRT - Lebaran Realtime"
+        document.title = "Rawan Macet - Sumedang LRT - Lebaran Realtime"
      }, []);
 
-    let arr_data = olehData.default;
+    let arr_data = kecelakaanData.default;
     let arr = []
 
     arr_data.forEach(e => {
@@ -48,7 +48,7 @@ export default function OleholehMap() {
     function getMarkerIcon(index) {
         if(index === selectedIndex)
               return createIcon("https://user-images.githubusercontent.com/1596072/85960867-3baf9700-b9af-11ea-854e-7ef6e656d447.png");
-        return createIcon(olehIcon);
+        return createIcon(kecelakaanIcon);
       }
 
     return (
@@ -57,7 +57,7 @@ export default function OleholehMap() {
             marginBottom: '20px'
         }}>
             <Typography variant="h5" component="h2">
-                Peta sebaran Oleh-Oleh di Kabupaten Sumedang
+                Peta sebaran Rawan Macet di Kabupaten Sumedang
             </Typography>
             <Link to="/">
                 <Button color="success" variant="outlined" style={{
@@ -68,7 +68,7 @@ export default function OleholehMap() {
              
         </Button>
                 </Link>
-            <MapContainer center={[-6.8387022, 107.9089463]} zoom={12} scrollWheelZoom={true} id="mapid" style={{ height: "100vh" }}>
+            <MapContainer center={[-6.8387022, 107.9089463]} zoom={12} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -2,6 +2,7 @@ import React from 'react'
 import Content from '../layouts/Content'
 import tempatWisata from '../../assets/img/tempatwisata.png'
 import olehOleh from '../../assets/img/oleholeh.png'
+import bapoktingImg from '../../assets/img/bapokting.png'
 import { Link } from 'react-router-dom'
 
 export default function InfoPariwisata() {
@@ -38,7 +39,7 @@ export default function InfoPariwisata() {
                     <Link to="/bapokting">
                         <Content
                             content={{
-                                img: olehOleh,
+                                img: bapoktingImg,
                                 title: "Bapokting",
                             }}
                         />

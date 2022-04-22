@@ -17,7 +17,7 @@ function createIcon(url) {
 export default function BengkelMap() {
 
     React.useEffect(() => {
-        document.title = "Bengkel - Sistem Informasi Idul Fitri"
+        document.title = "Bengkel - Sumedang LRT - Lebaran Realtime"
      }, []);
 
     let arr_data = bengkelData.default;

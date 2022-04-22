@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import HomePage from '../components/HomePage'
 
 //Informasi Lalu Lintas
-import LokasiMacetMap from '../pages/LokasiMacetMap'
-import LokasiRawanMap from '../pages/LokasiRawanMap'
+import RawanMacetMap from '../pages/RawanMacetMap'
+import RawanKecelakaanMap from '../pages/RawanKecelakaanMap'
 import JalanAlternatifMap from '../pages/JalanAlternatifMap'
 import KondisiJalanMap from '../pages/KondisiJalanMap'
 import MacetRealtime from '../pages/MacetRealtime'
@@ -37,12 +37,12 @@ export default function Routing(props) {
 
             {/* informasi lalulintas */}
 
-            <Route path="/lokasi-macet" >
-                <LokasiMacetMap/>
+            <Route path="/rawan-macet" >
+                <RawanMacetMap/>
             </Route>
 
             <Route path="/rawan-kecelakaan">
-                <LokasiRawanMap />
+                <RawanKecelakaanMap />
             </Route>
 
             <Route path="/jalan-alternatif">

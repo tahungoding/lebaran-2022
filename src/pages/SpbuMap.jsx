@@ -17,7 +17,7 @@ function createIcon(url) {
 export default function SpbuMap() {
 
     React.useEffect(() => {
-        document.title = "SPBU - Sistem Informasi Idul Fitri"
+        document.title = "SPBU - Sumedang LRT - Lebaran Realtime"
      }, []);
 
     let arr_data = spbuData.default;
