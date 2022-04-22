@@ -1,10 +1,10 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import * as kecelakaanData from '../../assets/data/kecelakaan.json'
+import * as rawanMacetData from '../../assets/data/rawan-macet.json'
 import { Container, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import * as L from "leaflet";
-import kecelakaanIcon from '../../assets/Maps/icon/kecelakaan.svg'
+import rawanMacetIcon from '../../assets/Maps/icon/lokasimacet.svg'
 import { Link } from 'react-router-dom'
 
 function createIcon(url) {
@@ -20,18 +20,18 @@ export default function RawanMacetMap() {
         document.title = "Rawan Macet - Sumedang LRT - Lebaran Realtime"
      }, []);
 
-    let arr_data = kecelakaanData.default;
+    let arr_data = rawanMacetData.default;
     let arr = []
 
     arr_data.forEach(e => {
         let temp = {
-            title: null, 
+            namaJalan: null, 
             lat: null,
             lng: null,
             address: null
         }
         if (e.location !== null) {
-            temp.title = e.title
+            temp.namaJalan = e.namaJalan
             temp.lat = e.location.lat
             temp.lng = e.location.lng
             temp.address = e.address
@@ -48,7 +48,7 @@ export default function RawanMacetMap() {
     function getMarkerIcon(index) {
         if(index === selectedIndex)
               return createIcon("https://user-images.githubusercontent.com/1596072/85960867-3baf9700-b9af-11ea-854e-7ef6e656d447.png");
-        return createIcon(kecelakaanIcon);
+        return createIcon(rawanMacetIcon);
       }
 
     return (
@@ -81,7 +81,7 @@ export default function RawanMacetMap() {
                     onclick={handleClick}
                     >
                         <Popup>
-                            <b>{marker.title}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
+                            <b>{marker.namaJalan}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
                         </Popup>
                     </Marker>
                 ))}

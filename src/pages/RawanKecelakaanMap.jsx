@@ -1,10 +1,10 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import * as kecelakaanData from '../../assets/data/kecelakaan.json'
+import * as rawanKecelakaanData from '../../assets/data/rawan-kecelakaan.json'
 import { Container, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import * as L from "leaflet";
-import kecelakaanIcon from '../../assets/Maps/icon/kecelakaan.svg'
+import rawanKecelakaanIcon from '../../assets/Maps/icon/kecelakaan.svg'
 import { Link } from 'react-router-dom'
 
 function createIcon(url) {
@@ -20,18 +20,18 @@ export default function RawanKecelakaanMap() {
         document.title = "Rawan Kecelakaan - Sumedang LRT - Lebaran Realtime"
      }, []);
 
-    let arr_data = kecelakaanData.default;
+    let arr_data = rawanKecelakaanData.default;
     let arr = []
 
     arr_data.forEach(e => {
         let temp = {
-            title: null, 
+            namaJalan: null, 
             lat: null,
             lng: null,
             address: null
         }
         if (e.location !== null) {
-            temp.title = e.title
+            temp.namaJalan = e.namaJalan
             temp.lat = e.location.lat
             temp.lng = e.location.lng
             temp.address = e.address
@@ -48,7 +48,7 @@ export default function RawanKecelakaanMap() {
     function getMarkerIcon(index) {
         if(index === selectedIndex)
               return createIcon("https://user-images.githubusercontent.com/1596072/85960867-3baf9700-b9af-11ea-854e-7ef6e656d447.png");
-        return createIcon(kecelakaanIcon);
+        return createIcon(rawanKecelakaanIcon);
       }
 
     return (
@@ -57,7 +57,7 @@ export default function RawanKecelakaanMap() {
             marginBottom: '20px'
         }}>
             <Typography variant="h5" component="h2">
-                Peta sebaran kecelakaan di Kabupaten Sumedang
+                Peta sebaran Rawan kecelakaan di Kabupaten Sumedang
             </Typography>
             <Link to="/">
                 <Button color="success" variant="outlined" style={{
@@ -81,7 +81,7 @@ export default function RawanKecelakaanMap() {
                     onclick={handleClick}
                     >
                         <Popup>
-                            <b>{marker.title}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
+                            <b>{marker.namaJalan}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
                         </Popup>
                     </Marker>
                 ))}
