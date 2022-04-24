@@ -2,44 +2,60 @@ import axios from "axios";
 import { Dialog, Transition } from '@headlessui/react'
 import React, { useEffect, useState, Fragment } from "react";
 import { useParams } from 'react-router-dom'
-import ProfileImg from '../../../assets/img/Profile.png';
-import JamImg from '../../../assets/img/Jam.svg';
-import LokasiImg from '../../../assets/img/Lokasi.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import ReactHtmlParser from 'react-html-parser'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import ProfileImg from "../../../assets/img/Profile.png";
+import JamImg from "../../../assets/img/Jam.svg";
+import LokasiImg from "../../../assets/img/Lokasi.svg";
+import MapModalImg from "../../../assets/img/mapModal.png";
 
 export default function LiniMasa() {
 
-  const perPage = 3;
-  const [totalPages, setTotalPages] = useState(1);
-  const [page, setPage] = useState(1);
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
-  
   let [isOpen, setIsOpen] = useState(false)
+  const [user, setUser] = useState([])
   const [userDetail, setUserDetail] = useState([])
+  const [noOfElement, setnoOfElement] = useState(2);
+  let slice = 0;
+
+  const loadMore = () => {
+    setnoOfElement(noOfElement + noOfElement);
+  }
+
+
+  let {identifier} = useParams();
+  const getUser = async () => {
+      
+  }
 
   function closeModal() {
     setIsOpen(false)
   }
 
-    const getUsers = async () => {
-      try {
-        let response = await axios.get(
-          "https://jsonplaceholder.typicode.com/users"
-        );
-        setUsers(response.data);
-      } catch (e) {
-        console.log(e.message);
-      }
-    };
+  async function openModal(id) {
+    let response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    setUserDetail(response.data)
+    setIsOpen(true)
+  }
+
+  const getUsers = async () => {
+    try {
+      let response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setUsers(response.data);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
 
     useEffect(() => {
-        getUsers()
-    })
+        getUsers(), getUser()
+    },[identifier])
  
+
+
+
   return (
     <div className="ss:mt-8 sm:mt-16 container mx-auto justify-center">
       <div
@@ -58,66 +74,68 @@ export default function LiniMasa() {
       
       <div className="wrapper">
 
-      {users.length > 0 && 
-        users.map((item, index)=>{
+      {
+        users.map((user, index)=>{
             return(
-                  <div className="container mx-auto justify-center mb-8 min-h-full " >
-                    <div className="border border-1 mb-8 group cursor-pointer hover:border-green-500 hover:border-2 border-gray-300 h-60 w-full rounded-lg">
-                      <div className="flex items-center mt-6 ml-3">
-                        <img
-                          className="w-10 h-10 rounded-full mx-4 mr-6"
-                          src={ProfileImg}
-                          alt="Avatar of Jonathan Reinink"
-                        />
-                        <div className="text-sm">
-                          <p className="text-gray-900 leading-none text-xl font-semibold ss:text-sm md:text-lg">
-                          {item.name}
-                          </p>
-                          <div className="flex items-center mt-0.5 ">
-                            <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
-                            <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">2 Jam yang lalu</p>
-                            <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
-                            <p className="text-gray-600 ss:text-sm md:text-lg">{item.address.street}</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="px-8 py-6 ">
-                        <p className="line-clamp-4 ss:text-sm md:text-base">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                          Quisquam, soluta nesciunt? Non voluptas iure unde, cupiditate
-                          dicta laboriosam assumenda, earum sint nesciunt ad accusamus
-                          obcaecati excepturi id maxime blanditiis quae impedit
-                          repellendus molestias! Dolorem laborum soluta laboriosam id
-                          praesentium fugiat, earum culpa aspernatur, animi repellat
-                          ducimus porro ea, fugit sequi?
-                        </p>
-                      </div>
+        <div className="container mx-auto justify-center mb-8 min-h-full " onClick={() => openModal(user.id)} >
+          <div className="border border-1 mb-8 group cursor-pointer hover:border-green-500 hover:border-2 border-gray-300 h-60 w-full rounded-lg">
+            <div className="flex items-center mt-6 ml-3">
+              <img
+                className="w-10 h-10 rounded-full mx-4 mr-6"
+                src={ProfileImg}
+                alt="Avatar of Jonathan Reinink"
+              />
+              <div className="text-sm">
+                <p className="text-gray-900 leading-none text-xl font-semibold ss:text-sm md:text-lg">
+                {user.name}
+                </p>
+                <div className="flex items-center mt-0.5 ">
+                  <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
+                  <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">2 Jam yang lalu</p>
+                  <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
+                  <p className="text-gray-600 ss:text-sm md:text-lg">{user.address.street}</p>
+                </div>
+              </div>
+            </div>
+            <div className="px-8 py-6 ">
+              <p className="line-clamp-4 ss:text-sm md:text-base">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam, soluta nesciunt? Non voluptas iure unde, cupiditate
+                dicta laboriosam assumenda, earum sint nesciunt ad accusamus
+                obcaecati excepturi id maxime blanditiis quae impedit
+                repellendus molestias! Dolorem laborum soluta laboriosam id
+                praesentium fugiat, earum culpa aspernatur, animi repellat
+                ducimus porro ea, fugit sequi?
+              </p>
+            </div>
 
-                      {/* modal */}
-                      <button
-                        className=" text-green-500 font-medium text-lg flex ml-8 md:-translate-y-5 ss:-translate-y-4 "
-                      >
-                        Selengkapnya
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6 translate-y-1 ml-2"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </button>
+            {/* modal */}
+            <button
+              className=" text-green-500 font-medium text-lg flex ml-8 md:-translate-y-5 ss:-translate-y-4 "
+              
+            >
+              Selengkapnya
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 translate-y-1 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
 
-                    </div>
-                  </div>
+          </div>
+        </div>
                 )
-              }) }
+              })
+          }
       
           <div className="container justify-center text-center">
             <button class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
@@ -202,8 +220,12 @@ export default function LiniMasa() {
                 
 
                     <div className="text-justify my-3">
+                    <p>
+                    {user.email}
+                    </p>
                     </div>
                     <div className="ml-3">
+                    <img src={MapModalImg} alt="" />
                     </div>
 
             
