@@ -1,15 +1,16 @@
 import axios from "axios";
 import { Dialog, Transition } from '@headlessui/react'
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react"
 import { useParams } from 'react-router-dom'
-import ProfileImg from "../../../assets/img/Profile.png";
-import JamImg from "../../../assets/img/Jam.svg";
-import LokasiImg from "../../../assets/img/Lokasi.svg";
-import MapModalImg from "../../../assets/img/mapModal.png";
+import ProfileImg from "../../../assets/img/Profile.png"
+import JamImg from "../../../assets/img/Jam.svg"
+import LokasiImg from "../../../assets/img/Lokasi.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import ReactHtmlParser from 'react-html-parser'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-export default function LiniMasa() {
+export default function MacetRealtime() {
   
   const perPage = 3;
   const [totalPages, setTotalPages] = useState(1);
@@ -21,11 +22,6 @@ export default function LiniMasa() {
   const [user, setUser] = useState([])
   const [userDetail, setUserDetail] = useState([])
 
-  const loadMore = () => {
-    setnoOfElement(noOfElement + noOfElement);
-  }
-
-
   let {identifier} = useParams();
   const getUser = async () => {
       
@@ -35,16 +31,19 @@ export default function LiniMasa() {
     setIsOpen(false)
   }
 
-  async function openModal(id) {
-    let response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
-    setUserDetail(response.data)
-    setIsOpen(true)
+  function openModal(id) {
+    fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
+    .then(res => res.json())
+    .then(res => {
+      setUserDetail(res)
+      setIsOpen(true)
+    });
   }
 
   const getUsers = () => {
     try {
       setLoading(true);
-      fetch(`https://reqres.in/api/users?per_page=${perPage}&page=${page}`)
+      fetch(`https://slrt.sumedangkab.go.id/api/kemacetan?per_page=${perPage}&current_page=${page}`)
         .then(res => res.json())
         .then(res => {
           setTotalPages(res.total_pages);
@@ -61,9 +60,6 @@ export default function LiniMasa() {
         getUsers(), getUser()
     },[identifier, page])
  
-
-
-
   return (
     <div className="ss:mt-8 sm:mt-16 container mx-auto justify-center">
       <div
@@ -99,7 +95,7 @@ export default function LiniMasa() {
                 </p>
                 <div className="flex items-center mt-0.5 ">
                   <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
-                  <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">2 Jam yang lalu</p>
+                  <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">{user.waktu}</p>
                   <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
                   <p className="text-gray-600 ss:text-sm md:text-lg">{user.id}</p>
                 </div>
@@ -107,13 +103,7 @@ export default function LiniMasa() {
             </div>
             <div className="px-8 py-6 ">
               <p className="line-clamp-4 ss:text-sm md:text-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam, soluta nesciunt? Non voluptas iure unde, cupiditate
-                dicta laboriosam assumenda, earum sint nesciunt ad accusamus
-                obcaecati excepturi id maxime blanditiis quae impedit
-                repellendus molestias! Dolorem laborum soluta laboriosam id
-                praesentium fugiat, earum culpa aspernatur, animi repellat
-                ducimus porro ea, fugit sequi?
+                {user.ringkas_kejadian}
               </p>
             </div>
 
@@ -218,37 +208,36 @@ export default function LiniMasa() {
                         </p>
                         <div className="flex items-center mt-0.5 ">
                         <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
-                        <p className="text-gray-600">2 Jam yang lalu</p>
+                        <p className="text-gray-600">{userDetail.waktu}</p>
                         <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
                         <p className="text-gray-600">Sumedang utara</p>
                         </div>
                     </div>
-                
                 </Dialog.Title>
-                
-
                     <div className="text-justify my-3">
-                    <p>
-                    {user.email}
-                    </p>
+                      {ReactHtmlParser(userDetail.detail_kejadian)}
                     </div>
                     <div className="ml-3">
-                    <img src={MapModalImg} alt="" />
+                    <MapContainer  center={[userDetail.latitude, userDetail.longitude]} zoom={20} scrollWheelZoom={false} style={{ height: "180px" }}>
+                      <TileLayer 
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      />
+                      <Marker  position={[userDetail.latitude, userDetail.longitude]}>
+                        <Popup >
+                          Lokasi kejadian
+                        </Popup>
+                      </Marker>
+                    </MapContainer>
                     </div>
-
-            
-
                 <div className="mt-4 justify-center flex">
-                    <button
+                    <a
                     type="button"
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-green-400 border border-transparent rounded-md hover:bg-green-600 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={closeModal}
+                    href={ 'https://maps.google.com/maps?q=' + userDetail.latitude + ',' + userDetail.longitude }
                     >
                     Buka Maps
-                    </button>
-
-                
-
+                    </a>
                 </div>
                 </div>
             </Transition.Child>
