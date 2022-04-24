@@ -10,6 +10,7 @@ module.exports = {
         padding: '1rem'
 
       },
+
     },
     screens: {
       'ss': '374px',

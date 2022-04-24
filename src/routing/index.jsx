@@ -14,6 +14,7 @@ import RawanKecelakaanMap from '../pages/lalulintas/RawanKecelakaanMap'
 //Informasi Lalu Lintas
 import RawanMacetMap from '../pages/lalulintas/RawanMacetMap'
 import Bapokting from '../pages/pariwisata/Bapokting'
+import Kedaruratan_Kesehatan from '../pages/pariwisata/Kedaruratan_Kesehatan'
 import OleholehMap from '../pages/pariwisata/OleholehMap'
 import WisataMap from '../pages/pariwisata/WisataMap'
 import AtmMap from '../pages/sarana/AtmMap'
@@ -96,6 +97,9 @@ export default function Routing(props) {
             </Route>
             <Route path="/bapokting">
                 <Bapokting />
+            </Route>
+            <Route path="/kedaruratan-kesehatan">
+                <Kedaruratan_Kesehatan />
             </Route>
 
             {/* development */}

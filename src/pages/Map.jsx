@@ -66,6 +66,7 @@ const Map = () => {
         zoom={3}
         scrollWheelZoom={false}
         style={{ height: "100vh", width: "100%", padding: 0 }}
+        
         // Set the map instance to state when ready:
         whenCreated={map => setMap(map)}
       >
