@@ -19,13 +19,9 @@ export default function MacetRealtime() {
   const [loading, setLoading] = useState(false);
   
   let [isOpen, setIsOpen] = useState(false)
-  const [user, setUser] = useState([])
   const [userDetail, setUserDetail] = useState([])
 
   let {identifier} = useParams();
-  const getUser = async () => {
-      
-  }
 
   function closeModal() {
     setIsOpen(false)
