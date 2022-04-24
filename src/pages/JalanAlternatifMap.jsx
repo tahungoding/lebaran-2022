@@ -17,7 +17,7 @@ function createIcon(url) {
 export default function jalanAlternatifMap() {
 
     React.useEffect(() => {
-        document.title = "Jalan Alternatif - Sistem Informasi Idul Fitri"
+        document.title = "Jalan Alternatif - Sumedang LRT - Lebaran Realtime"
      }, []);
 
     let arr_data = spbuData.default;

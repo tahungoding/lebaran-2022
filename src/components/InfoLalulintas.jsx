@@ -5,6 +5,10 @@ import fotoMacet from '../../assets/img/fotomacet.png'
 import fotoKecelakaan from '../../assets/img/fotoKecelakaan.png'
 import jalanAlternatif from '../../assets/img/jalanalternatif.png'
 import kondisiJalan from '../../assets/img/kondisijalan.png'
+import macetRealtimeImg from '../../assets/img/macet-realtime.png'
+import kecelakaanRealtimeImg from '../../assets/img/kecelakaan-realtime.png'
+import cctvImg from '../../assets/img/cctv.png'
+import dashboardAtcsImg from '../../assets/img/dashboard-atcs.png'
 
 export default function InfoLalulintas() {
     return (
@@ -25,7 +29,7 @@ export default function InfoLalulintas() {
                         <div className='grid ss:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:gap-x-3 xl:grid-cols-3 xl:gap-x-12
                        lg:grid-cols-4 lg:gap-x-5 2xl:grid-cols-4 2xl:gap-x-12 '>
 
-                <Link to="/lokasi-macet">
+                <Link to="/rawan-macet">
                     <Content
                         content={{
                             img: fotoMacet,
@@ -55,7 +59,7 @@ export default function InfoLalulintas() {
                 <Link to="/macet-realtime">
                     <Content
                         content={{
-                            img: kondisiJalan,
+                            img: macetRealtimeImg,
                             title: "Macet Realtime",
                         }}
                     />
@@ -63,7 +67,7 @@ export default function InfoLalulintas() {
                 <Link to="/kecelakaan-realtime">
                     <Content
                         content={{
-                            img: kondisiJalan,
+                            img: kecelakaanRealtimeImg,
                             title: "Kecelakaan Realtime",
                         }}
                     />
@@ -87,7 +91,7 @@ export default function InfoLalulintas() {
                 <Link to="/dashboard-atcs">
                     <Content
                         content={{
-                            img: kondisiJalan,
+                            img: dashboardAtcsImg,
                             title: "Dashboard ATCS",
                         }}
                     />
