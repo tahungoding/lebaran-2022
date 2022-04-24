@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export default function InfoPariwisata() {
     return (
-        <div className='ss:mt-8' id='infopariwisata'>
+        <div className='ss:mt-8' id='pariwisata'>
             <div className="container justify-center text-center lg:text-3xl xs:text-2xl  ss:text-lg ss:-mt-4 font-sans font-medium mb-7
                 text-[#3F3D56]">
                 Informasi Pariwisata dan Bahan Pokok

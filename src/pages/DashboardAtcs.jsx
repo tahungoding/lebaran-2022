@@ -5,6 +5,6 @@ export default function DashboardAtcs() {
         document.title = "Dashboard Atcs - Sistem Informasi Idul Fitri"
      }, []);
     return (
-        <iframe src="https://opendata.sumedangkab.go.id/index.php/MacetRealtime/dashboard" style={{height: "100vh", width: "100%"}} frameborder="0"></iframe>
+        <iframe src="https://atcs.sumedangkab.go.id/dashboard/test" style={{height: "100vh", width: "100%"}} frameborder="0"></iframe>
     )
 }

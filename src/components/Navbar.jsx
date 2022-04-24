@@ -1,38 +1,37 @@
 import { Menu } from '@headlessui/react';
 import React from 'react';
-import ReactDOM from 'react-dom'
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logoImg from '../../assets/img/logoLebaran.png';
 import DropdownLink from './DropdownLink';
-import logoImg from '../../assets/img/logo-smd.png'
 
 
 export default function Navbar() {
 
-    function handleScroll(id){
-        const item = ReactDOM.findDOMNode(this.refs[id]);
-        window.scrollTo(item.offsetTop);
-    }
+    // function handleScroll(id){
+    //     const item = ReactDOM.findDOMNode(this.refs[id]);
+    //     window.scrollTo(item.offsetTop);
+    // }
 
     return (
-        <nav class="flex justify-center py-4 bg-white drop-shadow-lg  relative xs:h-14 xl:h-16 2xl:h-24 w-full">
-            <div class="flex items-center">
-                <a href="#">
-                    <img src={logoImg} alt="" className='absolute lg:left-28 md:top-2 md:left-14 sm:left-4 sm:top-0.5 xs:left-5 xs:h-10 xm:top-2 xm:h-10 xm:left-8 ss:h-10 ss:top-2 lg:h-12 lg:w-12 xl:h-12 xl:w-12 xl:top-2' />
-                </a>
+        <nav className="flex justify-center py-4 bg-white drop-shadow-lg  relative xs:h-14 xl:h-16 2xl:h-24 w-full">
+            <div className="flex items-center">
+                <Link to="/">
+                    <img src={logoImg} alt="" className='absolute lg:left-28 md:top-2 md:left-6 sm:left-4 sm:top-0.5 xs:left-5 xs:h-7 xs:w-20 xs:top-3 xm:top-2 xm:h-10 xm:left-8 ss:h-10 ss:top-2
+                    md:h-10 md:w-auto lg:h-12 lg:top-1 lg:w-auto xl:h-12 xl:w-auto xl:top-2 2xl:h-20' />
+
+                </Link>
             </div>
-            <div class="items-center md:text-lg text-gray-500 font-sans lg:text-xl xl:text-2xl space-x-8 lg:flex xl:space-x-11 cursor-pointer xs:space-x-4 xm:invisible xs:visible ss:invisible">
+            <div className="items-center md:text-lg text-gray-500 font-sans lg:text-xl xl:text-2xl space-x-8 lg:flex xl:space-x-11 cursor-pointer xs:space-x-4 xm:invisible xs:visible ss:invisible">
 
 
-            <a className="hover:text-green-600 anchor-link" href="#infolalulintas">Lalu Lintas</a>
+            <Link to="linimasa" className="hover:text-green-600 anchor-link" >Lalu Lintas</Link>
 
-                <a activeClass="active" href="#sarana" spy={true} smooth={true} offset={-50} duration={500} className="hover:text-green-600 ">Sarana Prasarana</a>
+                <Link to="prasarana" className="hover:text-green-600 ">Sarana Prasarana</Link>
 
-                <a activeClass="active" href="#pariwisata" spy={true} smooth={true} offset={500} duration={500} className="hover:text-green-600">Pariwisata</a>
-
-            </div>
-            <div className=''>
+                <a  href="#pariwisata"  className="hover:text-green-600">Pariwisata</a>
 
             </div>
+           
 
             <div className="flex xs:hidden items-center gap-x-2">
 

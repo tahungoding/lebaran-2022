@@ -23,7 +23,7 @@ export default function InfoLalulintas() {
             <div className="min-h-full flex justify-center items-center container ">
                     <div className="ss:flex-1 sm:flex-none min-w-2xl mx-auto ">
                         <div className='grid ss:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:gap-x-3 xl:grid-cols-3 xl:gap-x-12
-                       lg:grid-cols-4 lg:gap-x-5 '>
+                       lg:grid-cols-4 lg:gap-x-5 2xl:grid-cols-4 2xl:gap-x-12 '>
 
                 <Link to="/lokasi-macet">
                     <Content
@@ -80,7 +80,7 @@ export default function InfoLalulintas() {
                     <Content
                         content={{
                             img: kondisiJalan,
-                            title: "CCTV",
+                            title: "CCTV Lalu Lintas",
                         }}
                     />
                 </Link>
