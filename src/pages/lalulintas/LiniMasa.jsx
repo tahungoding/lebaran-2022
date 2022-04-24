@@ -21,20 +21,18 @@ export default function MacetRealtime() {
   let [isOpen, setIsOpen] = useState(false)
   const [userDetail, setUserDetail] = useState([])
 
-  let {identifier} = useParams();
-
   function closeModal() {
     setIsOpen(false)
   }
 
-  function openModal(id) {
-    fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
-    .then(res => res.json())
-    .then(res => {
-      setUserDetail(res)
-      setIsOpen(true)
-    });
-  }
+  // function openModal(id) {
+  //   fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
+  //   .then(res => res.json())
+  //   .then(res => {
+  //     setUserDetail(res)
+  //     setIsOpen(true)
+  //   });
+  // }
 
   const getUsers = () => {
     try {
@@ -54,7 +52,7 @@ export default function MacetRealtime() {
 
     useEffect(() => {
         getUsers()
-    },[identifier, page])
+    },[page])
  
   return (
     <div className="ss:mt-8 sm:mt-16 container mx-auto justify-center">
