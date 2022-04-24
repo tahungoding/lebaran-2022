@@ -1,7 +1,6 @@
 import { Menu } from '@headlessui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImg from '../../assets/img/logoLebaran.png';
 import DropdownLink from './DropdownLink';
 import logoImg from '../../assets/img/logo-letter.png'
 

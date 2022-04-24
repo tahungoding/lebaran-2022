@@ -83,7 +83,7 @@ export default function InfoLalulintas() {
                 <Link to="/cctv">
                     <Content
                         content={{
-                            img: kondisiJalan,
+                            img: cctvImg,
                             title: "CCTV Lalu Lintas",
                         }}
                     />
