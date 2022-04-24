@@ -15,20 +15,20 @@ export default function Footer() {
                         <a href="https://tahungoding.id">TAHUNGODING</a>
                     </em></p>
 
-                <a className="flex mx-auto mt-4 mb-2 space-x-3 text-center">
+                <div className="flex mx-auto mt-4 mb-2 space-x-3 text-center">
                     <img src={instagramIcon} alt="" className='md:w-6 sm:w-5 sm:h-5 xs:h-4 ss:h-4' />
                     <p className='font-sans font-medium text-white md:text-base sm:text-sm xs:text-[11px]
                     ss:text-[11px] 
                     '>
                         <a href="https://instagram.com/tahungoding">tahungoding</a>
                     </p>
-                </a>
-                <a className="flex mx-auto space-x-3 text-center">
+                </div>
+                <div className="flex mx-auto space-x-3 text-center">
                     <img src={githubIcon} alt="" className='md:w-6 sm:w-5 sm:h-5 xs:h-4 ss:h-4' />
                     <p className='font-sans font-medium text-white md:text-base sm:text-sm xs:text-[11px] ss:text-[11px]'>
                         <a href="https://github.com/tahungoding">tahungoding</a>
                     </p>
-                </a>
+                </div>
 
 
 

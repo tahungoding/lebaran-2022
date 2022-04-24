@@ -1,7 +1,7 @@
 module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}"
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -13,9 +13,9 @@ module.exports = {
     },
     screens: {
       'ss': '374px',
-      // => @media (min-width: 500px) { ... }
+      // => @media (min-width: 374px) { ... }
       'xm': '425px',
-      // => @media (min-width: 500px) { ... }
+      // => @media (min-width: 425px) { ... }
       'xs': '500px',
       // => @media (min-width: 500px) { ... }
       'sm': '640px',
@@ -32,8 +32,12 @@ module.exports = {
 
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
+      '3xl': '1836px',
+      // => @media (min-width: 1536px) { ... }
 
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }

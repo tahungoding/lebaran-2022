@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
-import headerImg from '../../assets/img/Header.png'
+import headerImg from '../../assets/img/HeaderFix.png'
 
 export default function Hero() {
     return (

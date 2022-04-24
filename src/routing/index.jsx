@@ -1,32 +1,35 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import HomePage from '../components/HomePage'
-
+import AtmMap from '../pages/AtmMap'
+import Bapokting from '../pages/Bapokting'
+import BengkelMap from '../pages/BengkelMap'
+import Cctv from '../pages/Cctv'
+import DashboardAtcs from '../pages/DashboardAtcs'
+//Halaman Dev
+import DevMap from '../pages/DevMap'
+import JalanAlternatifMap from '../pages/JalanAlternatifMap'
+import KecelakaanRealtime from '../pages/KecelakaanRealtime'
+import KondisiJalanMap from '../pages/KondisiJalanMap'
+import LiniMasa from '../pages/LiniMasa'
 //Informasi Lalu Lintas
 import RawanMacetMap from '../pages/RawanMacetMap'
 import RawanKecelakaanMap from '../pages/RawanKecelakaanMap'
 import JalanAlternatifMap from '../pages/JalanAlternatifMap'
 import KondisiJalanMap from '../pages/KondisiJalanMap'
 import MacetRealtime from '../pages/MacetRealtime'
-import KecelakaanRealtime from '../pages/KecelakaanRealtime'
-import Cctv from '../pages/Cctv'
-import DashboardAtcs from '../pages/DashboardAtcs'
-
+import MasjidMap from '../pages/MasjidMap'
+import MiniMarketMap from '../pages/MiniMarketMap'
+import OleholehMap from '../pages/OleholehMap'
 //Informasi Sarana dan Prasarana
 import SpbuMap from '../pages/SpbuMap'
-import BengkelMap from '../pages/BengkelMap'
-import MiniMarketMap from '../pages/MiniMarketMap'
-import AtmMap from '../pages/AtmMap'
-import MasjidMap from '../pages/MasjidMap'
 import TerminalMap from '../pages/TerminalMap'
-
 //Informasi Pariwisata dan Bahan Pokok
 import WisataMap from '../pages/WisataMap'
-import OleholehMap from '../pages/OleholehMap'
-import Bapokting from '../pages/Bapokting'
 
-//Halaman Dev
-import DevMap from '../pages/DevMap'
+
+
+
 
 export default function Routing(props) {
     return (
@@ -34,6 +37,7 @@ export default function Routing(props) {
             <Route exact path="/">
                 <HomePage />
             </Route>
+           
 
             {/* informasi lalulintas */}
 
@@ -107,6 +111,16 @@ export default function Routing(props) {
             <Route path="/map">
                 <DevMap />
             </Route>
+
+            {/* Linimasa  */}
+            <Route path="/linimasa">
+                <LiniMasa/>
+            </Route>
+
+           
+
+          
+          
 
         </Switch>
     )
