@@ -63,8 +63,8 @@ export default function AtmMap() {
                 <Button color="success" variant="outlined" style={{
             marginTop: '20px',
             marginBottom: '20px'
-        }}>
-<HomeIcon/>
+                }}>
+        <HomeIcon/>
              
         </Button>
                 </Link>

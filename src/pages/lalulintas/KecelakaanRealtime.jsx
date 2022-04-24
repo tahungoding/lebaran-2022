@@ -9,7 +9,7 @@ import MapModalImg from "../../../assets/img/mapModal.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
-export default function LiniMasa() {
+export default function KecelakaanRealtime() {
   
   const perPage = 3;
   const [totalPages, setTotalPages] = useState(1);
@@ -36,7 +36,7 @@ export default function LiniMasa() {
   }
 
   async function openModal(id) {
-    let response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    let response = await axios.get(`https://reqres.in/api/users/${id}`)
     setUserDetail(response.data)
     setIsOpen(true)
   }
@@ -76,7 +76,7 @@ export default function LiniMasa() {
                  ss:text-[12px] ss:leading-4 mt-2
                  "
         >
-          Update daerah macet secara realtime
+          Update daerah kecelakaan secara realtime
         </p>
       </div>
       
