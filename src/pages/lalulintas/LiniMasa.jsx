@@ -25,12 +25,16 @@ export default function MacetRealtime() {
   }
 
   function openModal(id) {
-    fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
-    .then(res => res.json())
-    .then(res => {
-      setUserDetail(res)
-      setIsOpen(true)
-    });
+    if (id !== undefined) {
+      fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
+      .then(res => res.json())
+      .then(res => {
+        if(res !== undefined){
+          setUserDetail(res)
+          setIsOpen(true)
+        }
+      });
+    }
   }
 
     useEffect(() => {
@@ -39,9 +43,11 @@ export default function MacetRealtime() {
           fetch(`https://slrt.sumedangkab.go.id/api/kemacetan?per_page=${perPage}&current_page=${page}`)
             .then(res => res.json())
             .then(res => {
-              setTotalPages(res.total_pages);
-              setUsers([...users, ...res.data]);
-              setLoading(false);
+              if(res !== undefined){
+                setTotalPages(res.total_pages);
+                setUsers([...users, ...res.data]);
+                setLoading(false);
+              }
             });
       }
       getUsers()
@@ -128,7 +134,6 @@ export default function MacetRealtime() {
             </button>}
           </div>
       </div>
-
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
             as="div"
@@ -230,7 +235,7 @@ export default function MacetRealtime() {
             </Transition.Child>
             </div>
         </Dialog>
-    </Transition>
+      </Transition>
     </div>
   );
 }
