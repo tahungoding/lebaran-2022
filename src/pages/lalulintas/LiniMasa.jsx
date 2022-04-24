@@ -53,7 +53,7 @@ export default function MacetRealtime() {
   };
 
     useEffect(() => {
-        getUsers(), getUser()
+        getUsers()
     },[identifier, page])
  
   return (
