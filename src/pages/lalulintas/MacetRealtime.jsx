@@ -1,11 +1,10 @@
 import axios from "axios";
 import { Dialog, Transition } from '@headlessui/react'
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react"
 import { useParams } from 'react-router-dom'
-import ProfileImg from "../../../assets/img/Profile.png";
-import JamImg from "../../../assets/img/Jam.svg";
-import LokasiImg from "../../../assets/img/Lokasi.svg";
-import MapModalImg from "../../../assets/img/mapModal.png";
+import ProfileImg from "../../../assets/img/Profile.png"
+import JamImg from "../../../assets/img/Jam.svg"
+import LokasiImg from "../../../assets/img/Lokasi.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import ReactHtmlParser from 'react-html-parser'
@@ -216,12 +215,9 @@ export default function MacetRealtime() {
                         <p className="text-gray-600">Sumedang utara</p>
                         </div>
                     </div>
-                
                 </Dialog.Title>
-                
-
                     <div className="text-justify my-3">
-                      {/* {ReactHtmlParser(userDetail.detail_kejadian)} */}
+                      {ReactHtmlParser(userDetail.detail_kejadian)}
                     </div>
                     <div className="ml-3">
                     <MapContainer  center={[userDetail.latitude, userDetail.longitude]} zoom={20} scrollWheelZoom={false} style={{ height: "180px" }}>

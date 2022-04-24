@@ -56,7 +56,7 @@ export default function InfoLalulintas() {
                         }}
                     />
                 </Link>
-                <Link to="/macet-realtime">
+                <Link to="/kemacetan-realtime">
                     <Content
                         content={{
                             img: macetRealtimeImg,
