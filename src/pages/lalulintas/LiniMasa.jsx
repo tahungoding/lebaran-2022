@@ -27,7 +27,7 @@ export default function LiniMasa() {
 
   function openModal(id) {
     if (id !== undefined) {
-      fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
+      fetch(`https://reqres.in/api/users/${id}`)
       .then(res => res.json())
       .then(res => {
         if(res !== undefined){
@@ -41,7 +41,7 @@ export default function LiniMasa() {
     useEffect(() => {
       const getUsers = () => {
           setLoading(true);
-          fetch(`https://slrt.sumedangkab.go.id/api/kemacetan?per_page=${perPage}&current_page=${page}`)
+          fetch(`https://reqres.in/api/users?per_page=${perPage}&current_page=${page}`)
             .then(res => res.json())
             .then(res => {
               if(res !== undefined){
@@ -134,7 +134,7 @@ export default function LiniMasa() {
               }) }
       
           <div className="container justify-center text-center">
-            <button class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            <button onClick={() => setPage(page + 1)} class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
               Lihat lebih banyak <FontAwesomeIcon icon={faAngleDown} />
             </button>
           </div>
