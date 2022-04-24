@@ -8,6 +8,8 @@ import ProfileImg from "../../../assets/img/Profile.png";
 import JamImg from "../../../assets/img/Jam.svg";
 import LokasiImg from "../../../assets/img/Lokasi.svg";
 import MapModalImg from "../../../assets/img/mapModal.png";
+import ReactHtmlParser from 'react-html-parser'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default function LiniMasa() {
 
@@ -25,7 +27,7 @@ export default function LiniMasa() {
 
   async function openModal(id) {
     let response = await axios.get(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
-    setUserDetail(response)
+    setUserDetail(response.data)
     setIsOpen(true)
   }
 
@@ -65,10 +67,10 @@ export default function LiniMasa() {
       
       <div className="wrapper">
 
-      {
-        users.map((user, index)=>{
+      {users.length > 0 &&
+        users.map((item, index)=>{
             return(
-        <div className="container mx-auto justify-center mb-8 min-h-full " onClick={() => openModal(user.id)} >
+        <div className="container mx-auto justify-center mb-8 min-h-full " onClick={() => openModal(item.id)} >
           <div className="border border-1 mb-8 group cursor-pointer hover:border-green-500 hover:border-2 border-gray-300 h-60 w-full rounded-lg">
             <div className="flex items-center mt-6 ml-3">
               <img
@@ -78,32 +80,25 @@ export default function LiniMasa() {
               />
               <div className="text-sm">
                 <p className="text-gray-900 leading-none text-xl font-semibold ss:text-sm md:text-lg">
-                {user.lokasi}
+                {item.lokasi}
                 </p>
                 <div className="flex items-center mt-0.5 ">
                   <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
-                  <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">2 Jam yang lalu</p>
+                  <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">{item.waktu}</p>
                   <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
-                  <p className="text-gray-600 ss:text-sm md:text-lg">{user.latitude}</p>
+                  <p className="text-gray-600 ss:text-sm md:text-lg">Sumedang Utara</p>
                 </div>
               </div>
             </div>
             <div className="px-8 py-6 ">
               <p className="line-clamp-4 ss:text-sm md:text-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam, soluta nesciunt? Non voluptas iure unde, cupiditate
-                dicta laboriosam assumenda, earum sint nesciunt ad accusamus
-                obcaecati excepturi id maxime blanditiis quae impedit
-                repellendus molestias! Dolorem laborum soluta laboriosam id
-                praesentium fugiat, earum culpa aspernatur, animi repellat
-                ducimus porro ea, fugit sequi?
+                {item.ringkas_kejadian}
               </p>
             </div>
 
             {/* modal */}
             <button
               className=" text-green-500 font-medium text-lg flex ml-8 md:-translate-y-5 ss:-translate-y-4 "
-              
             >
               Selengkapnya
               <svg
@@ -129,7 +124,7 @@ export default function LiniMasa() {
           }
       
           <div className="container justify-center text-center">
-            <button class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            <button className="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
               Lihat lebih banyak <FontAwesomeIcon icon={faAngleDown} />
             </button>
           </div>
@@ -201,43 +196,42 @@ export default function LiniMasa() {
                         </p>
                         <div className="flex items-center mt-0.5 ">
                         <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
-                        <p className="text-gray-600">2 Jam yang lalu</p>
+                        <p className="text-gray-600">{userDetail.waktu}</p>
                         <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
                         <p className="text-gray-600">Sumedang utara</p>
                         </div>
                     </div>
-                
                 </Dialog.Title>
-                
-
                     <div className="text-justify my-3">
-                    <p>
-                    {user.email}
-                    </p>
+                      {ReactHtmlParser(userDetail.detail_kejadian)}
                     </div>
                     <div className="ml-3">
-                    <img src={MapModalImg} alt="" />
+                    <MapContainer  center={[userDetail.latitude, userDetail.longitude]} zoom={20} scrollWheelZoom={false} style={{ height: "180px" }}>
+                      <TileLayer 
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      />
+                      <Marker  position={[userDetail.latitude, userDetail.longitude]}>
+                        <Popup >
+                          Lokasi kejadian
+                        </Popup>
+                      </Marker>
+                    </MapContainer>
                     </div>
-
-            
-
                 <div className="mt-4 justify-center flex">
-                    <button
+                    <a
                     type="button"
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-green-400 border border-transparent rounded-md hover:bg-green-600 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={closeModal}
+                    href={ 'https://maps.google.com/maps?q=' + userDetail.latitude + ',' + userDetail.longitude }
                     >
                     Buka Maps
-                    </button>
-
-                
-
+                    </a>
                 </div>
                 </div>
             </Transition.Child>
             </div>
         </Dialog>
-    </Transition>
+      </Transition>
     </div>
   );
 }
