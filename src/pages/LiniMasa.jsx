@@ -6,6 +6,8 @@ import ProfileImg from "../../assets/img/Profile.png";
 import JamImg from "../../assets/img/Jam.svg";
 import LokasiImg from "../../assets/img/Lokasi.svg";
 import MapModalImg from "../../assets/img/mapModal.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function LiniMasa() {
 
@@ -13,6 +15,12 @@ export default function LiniMasa() {
   let [isOpen, setIsOpen] = useState(false)
   const [user, setUser] = useState([])
   const [userDetail, setUserDetail] = useState([])
+  const [noOfElement, setnoOfElement] = useState(2);
+  let slice = 0;
+
+  const loadMore = () => {
+    setnoOfElement(noOfElement + noOfElement);
+  }
 
 
   let {identifier} = useParams();
@@ -69,9 +77,7 @@ export default function LiniMasa() {
       {
         users.map((user, index)=>{
             return(
-
-
-        <div className="container mx-auto justify-center mb-8 min-h-full ">
+        <div className="container mx-auto justify-center mb-8 min-h-full " onClick={() => openModal(user.id)} >
           <div className="border border-1 mb-8 group cursor-pointer hover:border-green-500 hover:border-2 border-gray-300 h-60 w-full rounded-lg">
             <div className="flex items-center mt-6 ml-3">
               <img
@@ -106,7 +112,7 @@ export default function LiniMasa() {
             {/* modal */}
             <button
               className=" text-green-500 font-medium text-lg flex ml-8 md:-translate-y-5 ss:-translate-y-4 "
-              onClick={() => openModal(user.id)} 
+              
             >
               Selengkapnya
               <svg
@@ -131,6 +137,11 @@ export default function LiniMasa() {
               })
           }
       
+          <div className="container justify-center text-center">
+            <button class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+              Lihat lebih banyak <FontAwesomeIcon icon={faAngleDown} />
+            </button>
+          </div>
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -149,10 +160,9 @@ export default function LiniMasa() {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <Dialog.Overlay className="fixed inset-0" />
+                <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
             </Transition.Child>
 
-            {/* This element is to trick the browser into centering the modal contents. */}
             <span
                 className="inline-block h-screen align-middle"
                 aria-hidden="true"
