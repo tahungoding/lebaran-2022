@@ -25,12 +25,6 @@ export default function LiniMasa() {
     setIsOpen(false)
   }
 
-  async function openModal(id) {
-    let response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
-    setUserDetail(response.data)
-    setIsOpen(true)
-  }
-
     const getUsers = async () => {
       try {
         let response = await axios.get(
@@ -67,7 +61,7 @@ export default function LiniMasa() {
       {users.length > 0 && 
         users.map((item, index)=>{
             return(
-                  <div className="container mx-auto justify-center mb-8 min-h-full " onClick={() => openModal(item.id)} >
+                  <div className="container mx-auto justify-center mb-8 min-h-full " >
                     <div className="border border-1 mb-8 group cursor-pointer hover:border-green-500 hover:border-2 border-gray-300 h-60 w-full rounded-lg">
                       <div className="flex items-center mt-6 ml-3">
                         <img
