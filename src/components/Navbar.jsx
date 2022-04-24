@@ -7,11 +7,7 @@ import logoImg from '../../assets/img/logo-letter.png'
 
 export default function Navbar() {
 
-    // function handleScroll(id){
-    //     const item = ReactDOM.findDOMNode(this.refs[id]);
-    //     window.scrollTo(item.offsetTop);
-    // }
-
+  
     return (
         <nav className="flex justify-center py-4 bg-white drop-shadow-lg  relative xs:h-14 xl:h-16 2xl:h-24 w-full">
             <div className="flex items-center">
@@ -21,7 +17,7 @@ export default function Navbar() {
 
                 </Link>
             </div>
-            <div className="items-center md:text-lg text-gray-500 font-sans lg:text-xl xl:text-2xl space-x-8 lg:flex xl:space-x-11 cursor-pointer xs:space-x-4 xm:invisible xs:visible ss:invisible">
+            <div className="items-center md:text-base text-gray-500 font-sans lg:text-xl xl:text-2xl space-x-8 lg:flex xl:space-x-11 cursor-pointer xs:space-x-4 xm:invisible xs:visible ss:invisible">
 
 
             <Link to="linimasa" className="hover:text-green-600 anchor-link" >Lalu Lintas</Link>

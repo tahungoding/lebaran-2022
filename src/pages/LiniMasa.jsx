@@ -1,11 +1,52 @@
-import React, { useState } from "react";
+import axios from "axios";
+import { Dialog, Transition } from '@headlessui/react'
+import React, { useEffect, useState, Fragment } from "react";
+import { useParams } from 'react-router-dom'
+import ProfileImg from "../../assets/img/Profile.png";
 import JamImg from "../../assets/img/Jam.svg";
 import LokasiImg from "../../assets/img/Lokasi.svg";
 import MapModalImg from "../../assets/img/mapModal.png";
-import ProfileImg from "../../assets/img/Profile.png";
 
 export default function LiniMasa() {
-  const [showModal, setShowModal] = useState(false);
+
+  const [users, setUsers] = useState([]);
+  let [isOpen, setIsOpen] = useState(false)
+  const [user, setUser] = useState([])
+  const [userDetail, setUserDetail] = useState([])
+
+
+  let {identifier} = useParams();
+  const getUser = async () => {
+      
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  async function openModal(id) {
+    let response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    setUserDetail(response.data)
+    setIsOpen(true)
+  }
+
+  const getUsers = async () => {
+    try {
+      let response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setUsers(response.data);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+    useEffect(() => {
+        getUsers(), getUser()
+    },[identifier])
+ 
+
+
 
   return (
     <div className="ss:mt-8 sm:mt-16 container mx-auto justify-center">
@@ -22,7 +63,14 @@ export default function LiniMasa() {
           Update daerah macet secara realtime
         </p>
       </div>
+      
       <div className="wrapper">
+
+      {
+        users.map((user, index)=>{
+            return(
+
+
         <div className="container mx-auto justify-center mb-8 min-h-full ">
           <div className="border border-1 mb-8 group cursor-pointer hover:border-green-500 hover:border-2 border-gray-300 h-60 w-full rounded-lg">
             <div className="flex items-center mt-6 ml-3">
@@ -33,13 +81,13 @@ export default function LiniMasa() {
               />
               <div className="text-sm">
                 <p className="text-gray-900 leading-none text-xl font-semibold ss:text-sm md:text-lg">
-                  Pos Gatur 1
+                {user.name}
                 </p>
                 <div className="flex items-center mt-0.5 ">
                   <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
-                  <p className="text-gray-600 ss:text-sm md:text-lg">2 Jam yang lalu</p>
+                  <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">2 Jam yang lalu</p>
                   <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
-                  <p className="text-gray-600 ss:text-sm md:text-lg">Sumedang utara</p>
+                  <p className="text-gray-600 ss:text-sm md:text-lg">{user.address.street}</p>
                 </div>
               </div>
             </div>
@@ -58,8 +106,7 @@ export default function LiniMasa() {
             {/* modal */}
             <button
               className=" text-green-500 font-medium text-lg flex ml-8 md:-translate-y-5 ss:-translate-y-4 "
-              type="button"
-              onClick={() => setShowModal(true)}
+              onClick={() => openModal(user.id)} 
             >
               Selengkapnya
               <svg
@@ -78,88 +125,118 @@ export default function LiniMasa() {
               </svg>
             </button>
 
-            {/* modal */}
           </div>
         </div>
+                )
+              })
+          }
+      
       </div>
 
-      {/* modal */}
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog
+            as="div"
+            className="fixed inset-0 z-10 overflow-y-auto"
+            onClose={closeModal}
+        >
+            <div className="min-h-screen px-4 text-center">
+            <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+            >
+                <Dialog.Overlay className="fixed inset-0" />
+            </Transition.Child>
 
-      {showModal ? (
-        <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                <div className="absolute -right-2 -top-3 p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button type="button" onClick={() => setShowModal(false)}>
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+                className="inline-block h-screen align-middle"
+                aria-hidden="true"
+            >
+                &#8203;
+            </span>
+            <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+            >
+                <div className="inline-block relative w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl
+                ">
+                <button type="button" className='absolute right-4' onClick={closeModal}>
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 text-green-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-8 w-8 text-green-500"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
                     >
-                      <path
+                        <path
                         fillRule="evenodd"
                         d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
                         clipRule="evenodd"
-                      />
+                        />
                     </svg>
-                  </button>
-                </div>
+                    </button>
 
-                {/*header*/}
-                <div className="flex items-start justify-between ">
-                  <div className="flex items-center mt-6 ml-3">
+                <Dialog.Title
+                    as="h3"
+                    className="text-lg inline-flex font-medium leading-6 text-gray-900"
+                >
                     <img
-                      className="w-10 h-10 rounded-full mx-4 mr-6"
-                      src={ProfileImg}
-                      alt="Avatar of Jonathan Reinink"
+                        className="w-10 h-10 rounded-full  mr-4"
+                        src={ProfileImg}
+                        alt="Avatar of Jonathan Reinink"
                     />
                     <div className="text-sm">
-                      <p className="text-gray-900 leading-none text-xl font-semibold ">
-                        Pos Gatur 1
-                      </p>
-                      <div className="flex items-center mt-0.5 ">
+                        <p className="text-gray-900 leading-none text-xl font-semibold ">
+                        {userDetail.name}
+                        </p>
+                        <div className="flex items-center mt-0.5 ">
                         <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
                         <p className="text-gray-600">2 Jam yang lalu</p>
                         <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
                         <p className="text-gray-600">Sumedang utara</p>
-                      </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-                {/*body*/}
-                <div className="relative mb-8 cursor-pointer h-auto w-[450px] rounded-lg container mx-auto items-center justify-center">
-                  <div className="px-8 py-6">
-                    <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Laboriosam omnis in laudantium sequi et. Id quidem est
-                      neque illo quam unde dolorum reiciendis animi, repellendus
-                      vel quaerat velit cum non facilis corporis, alias nulla
-                      suscipit consequuntur nesciunt totam nam voluptatem!
-                      Fugiat numquam repellat possimus tempore distinctio.
-                    </p>
-                  </div>
-                  <div className="ml-5 mb-11">
-                    <img src={MapModalImg} alt="" />
-                  </div>
-                </div>
-                {/*footer*/}
+                
+                </Dialog.Title>
+                
 
-                <button
-                  className="bg-[#00A859] absolute text-base rounded-lg bottom-2 left-9 text-white font-medium h-[42px] w-[373px] uppercase px-6 py-2 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                >
-                  Buka Maps
-                </button>
-              </div>
+                    <div className="text-justify my-3">
+                    <p>
+                    {user.email}
+                    </p>
+                    </div>
+                    <div className="ml-3">
+                    <img src={MapModalImg} alt="" />
+                    </div>
+
+            
+
+                <div className="mt-4 justify-center flex">
+                    <button
+                    type="button"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-green-400 border border-transparent rounded-md hover:bg-green-600 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    onClick={closeModal}
+                    >
+                    Buka Maps
+                    </button>
+
+                
+
+                </div>
+                </div>
+            </Transition.Child>
             </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
+        </Dialog>
+    </Transition>
     </div>
   );
 }
