@@ -8,9 +8,8 @@ import Cctv from '../pages/Cctv'
 import DashboardAtcs from '../pages/DashboardAtcs'
 //Halaman Dev
 import DevMap from '../pages/DevMap'
-import JalanAlternatifMap from '../pages/JalanAlternatifMap'
 import KecelakaanRealtime from '../pages/KecelakaanRealtime'
-import KondisiJalanMap from '../pages/KondisiJalanMap'
+// import KondisiJalanMap from '../pages/KondisiJalanMap'
 import LiniMasa from '../pages/LiniMasa'
 //Informasi Lalu Lintas
 import RawanMacetMap from '../pages/RawanMacetMap'
