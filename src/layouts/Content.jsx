@@ -12,7 +12,7 @@ export default function Content(props) {
             ' />
             <div className="mx-auto ">
                 <p className='lg:text-[15px]
-                xl:text-[24px] xl:top-36
+                xl:text-[22px] xl:top-36
                 lg:top-24 md:text-[12px] md:top-14 sm:text-[11px]  text-[#00A859] font-sans font-medium mt-2 absolute
                  inset-x-0 bottom-3 group-hover:text-white 
                  ss:top-7 ss:left-40 ss:text-left sm:top-24 sm:text-center sm:-left-0'>

@@ -1,10 +1,10 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import * as rawanMacetData from '../../assets/data/rawan-macet.json'
+import * as olehData from '../../../assets/data/oleh.json'
 import { Container, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import * as L from "leaflet";
-import rawanMacetIcon from '../../assets/Maps/icon/lokasimacet.svg'
+import olehIcon from '../../../assets/Maps/icon/oleh.svg'
 import { Link } from 'react-router-dom'
 
 function createIcon(url) {
@@ -14,24 +14,24 @@ function createIcon(url) {
   });
 }
 
-export default function RawanMacetMap() {
+export default function OleholehMap() {
 
     React.useEffect(() => {
-        document.title = "Rawan Macet - Sumedang LRT - Lebaran Realtime"
+        document.title = "Oleh-oleh - Sumedang LRT - Lebaran Realtime"
      }, []);
 
-    let arr_data = rawanMacetData.default;
+    let arr_data = olehData.default;
     let arr = []
 
     arr_data.forEach(e => {
         let temp = {
-            namaJalan: null, 
+            title: null, 
             lat: null,
             lng: null,
             address: null
         }
         if (e.location !== null) {
-            temp.namaJalan = e.namaJalan
+            temp.title = e.title
             temp.lat = e.location.lat
             temp.lng = e.location.lng
             temp.address = e.address
@@ -48,7 +48,7 @@ export default function RawanMacetMap() {
     function getMarkerIcon(index) {
         if(index === selectedIndex)
               return createIcon("https://user-images.githubusercontent.com/1596072/85960867-3baf9700-b9af-11ea-854e-7ef6e656d447.png");
-        return createIcon(rawanMacetIcon);
+        return createIcon(olehIcon);
       }
 
     return (
@@ -57,7 +57,7 @@ export default function RawanMacetMap() {
             marginBottom: '20px'
         }}>
             <Typography variant="h5" component="h2">
-                Peta sebaran Rawan Macet di Kabupaten Sumedang
+                Peta sebaran Oleh-Oleh di Kabupaten Sumedang
             </Typography>
             <Link to="/">
                 <Button color="success" variant="outlined" style={{
@@ -68,7 +68,7 @@ export default function RawanMacetMap() {
              
         </Button>
                 </Link>
-            <MapContainer center={[-6.8387022, 107.9089463]} zoom={12} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
+            <MapContainer center={[-6.8387022, 107.9089463]} zoom={12} scrollWheelZoom={true} id="mapid" style={{ height: "100vh" }}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -81,7 +81,7 @@ export default function RawanMacetMap() {
                     onclick={handleClick}
                     >
                         <Popup>
-                            <b>{marker.namaJalan}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
+                            <b>{marker.title}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
                         </Popup>
                     </Marker>
                 ))}
