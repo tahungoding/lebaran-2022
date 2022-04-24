@@ -22,11 +22,6 @@ export default function MacetRealtime() {
   const [user, setUser] = useState([])
   const [userDetail, setUserDetail] = useState([])
 
-  const loadMore = () => {
-    setnoOfElement(noOfElement + noOfElement);
-  }
-
-
   let {identifier} = useParams();
   const getUser = async () => {
       
@@ -36,10 +31,13 @@ export default function MacetRealtime() {
     setIsOpen(false)
   }
 
-  async function openModal(id) {
-    let response = await axios.get(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
-    setUserDetail(response.data)
-    setIsOpen(true)
+  function openModal(id) {
+    fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
+    .then(res => res.json())
+    .then(res => {
+      setUserDetail(res)
+      setIsOpen(true)
+    });
   }
 
   const getUsers = () => {

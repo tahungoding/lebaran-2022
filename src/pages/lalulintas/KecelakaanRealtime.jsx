@@ -9,7 +9,7 @@ import MapModalImg from "../../../assets/img/mapModal.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
-export default function KecelakaanRealtime() {
+export default function MacetRealtime() {
   
   const perPage = 3;
   const [totalPages, setTotalPages] = useState(1);
@@ -76,7 +76,7 @@ export default function KecelakaanRealtime() {
                  ss:text-[12px] ss:leading-4 mt-2
                  "
         >
-          Update daerah kecelakaan secara realtime
+          Update daerah macet secara realtime
         </p>
       </div>
       
