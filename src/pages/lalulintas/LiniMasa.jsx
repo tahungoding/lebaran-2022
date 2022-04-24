@@ -15,42 +15,33 @@ export default function LiniMasa() {
   let [isOpen, setIsOpen] = useState(false)
   const [user, setUser] = useState([])
   const [userDetail, setUserDetail] = useState([])
-  const [noOfElement, setnoOfElement] = useState(2);
-  let slice = 0;
-
-  const loadMore = () => {
-    setnoOfElement(noOfElement + noOfElement);
-  }
 
 
   let {identifier} = useParams();
-  const getUser = async () => {
-      
-  }
 
   function closeModal() {
     setIsOpen(false)
   }
 
   async function openModal(id) {
-    let response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
-    setUserDetail(response.data)
+    let response = await axios.get(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
+    setUserDetail(response)
     setIsOpen(true)
   }
 
   const getUsers = async () => {
     try {
       let response = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
+        'https://slrt.sumedangkab.go.id/api/kemacetan'
       );
-      setUsers(response.data);
+      setUsers(response.data.data);
     } catch (e) {
       console.log(e.message);
     }
   };
 
     useEffect(() => {
-        getUsers(), getUser()
+        getUsers()
     },[identifier])
  
 
@@ -87,13 +78,13 @@ export default function LiniMasa() {
               />
               <div className="text-sm">
                 <p className="text-gray-900 leading-none text-xl font-semibold ss:text-sm md:text-lg">
-                {user.name}
+                {user.lokasi}
                 </p>
                 <div className="flex items-center mt-0.5 ">
                   <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
                   <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">2 Jam yang lalu</p>
                   <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
-                  <p className="text-gray-600 ss:text-sm md:text-lg">{user.address.street}</p>
+                  <p className="text-gray-600 ss:text-sm md:text-lg">{user.latitude}</p>
                 </div>
               </div>
             </div>
