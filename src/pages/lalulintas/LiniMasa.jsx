@@ -1,10 +1,9 @@
 import axios from "axios";
 import { Dialog, Transition } from '@headlessui/react'
 import React, { useEffect, useState, Fragment } from "react"
-import { useParams } from 'react-router-dom'
-import ProfileImg from "../../../assets/img/Profile.png"
-import JamImg from "../../../assets/img/Jam.svg"
-import LokasiImg from "../../../assets/img/Lokasi.svg"
+import ProfileImg from '../../../assets/img/Profile.png'
+import JamImg from '../../../assets/img/Jam.svg'
+import LokasiImg from '../../../assets/img/Lokasi.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import ReactHtmlParser from 'react-html-parser'
@@ -25,33 +24,27 @@ export default function MacetRealtime() {
     setIsOpen(false)
   }
 
-  // function openModal(id) {
-  //   fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
-  //   .then(res => res.json())
-  //   .then(res => {
-  //     setUserDetail(res)
-  //     setIsOpen(true)
-  //   });
-  // }
-
-  const getUsers = () => {
-    try {
-      setLoading(true);
-      fetch(`https://slrt.sumedangkab.go.id/api/kemacetan?per_page=${perPage}&current_page=${page}`)
-        .then(res => res.json())
-        .then(res => {
-          setTotalPages(res.total_pages);
-          setUsers([...users, ...res.data]);
-          setLoading(false);
-        });
-
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
+  function openModal(id) {
+    fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
+    .then(res => res.json())
+    .then(res => {
+      setUserDetail(res)
+      setIsOpen(true)
+    });
+  }
 
     useEffect(() => {
-        getUsers()
+      const getUsers = () => {
+          setLoading(true);
+          fetch(`https://slrt.sumedangkab.go.id/api/kemacetan?per_page=${perPage}&current_page=${page}`)
+            .then(res => res.json())
+            .then(res => {
+              setTotalPages(res.total_pages);
+              setUsers([...users, ...res.data]);
+              setLoading(false);
+            });
+      }
+      getUsers()
     },[page])
  
   return (
@@ -130,9 +123,9 @@ export default function MacetRealtime() {
           }
       
           <div className="container justify-center text-center">
-            <button onClick={() => setPage(page + 1)} class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          {totalPages !== page && <button onClick={() => setPage(page + 1)} class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
               {loading ? 'Loading...' : 'Lihat lebih banyak'} <FontAwesomeIcon icon={faAngleDown} />
-            </button>
+            </button>}
           </div>
       </div>
 
