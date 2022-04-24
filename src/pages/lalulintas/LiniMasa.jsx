@@ -1,58 +1,52 @@
 import axios from "axios";
 import { Dialog, Transition } from '@headlessui/react'
-import React, { useEffect, useState, Fragment } from "react"
-import ProfileImg from '../../../assets/img/Profile.png'
-import JamImg from '../../../assets/img/Jam.svg'
-import LokasiImg from '../../../assets/img/Lokasi.svg'
+import React, { useEffect, useState, Fragment } from "react";
+import { useParams } from 'react-router-dom'
+import ProfileImg from '../../../assets/img/Profile.png';
+import JamImg from '../../../assets/img/Jam.svg';
+import LokasiImg from '../../../assets/img/Lokasi.svg';
+import MapModalImg from '../../../assets/img/mapModal.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import ReactHtmlParser from 'react-html-parser'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-export default function MacetRealtime() {
-  
-  const perPage = 3;
-  const [totalPages, setTotalPages] = useState(1);
-  const [page, setPage] = useState(1);
+export default function LiniMasa() {
+
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
-  
   let [isOpen, setIsOpen] = useState(false)
+  const [user, setUser] = useState([])
   const [userDetail, setUserDetail] = useState([])
+  const [noOfElement, setnoOfElement] = useState(2);
+
+  let {identifier} = useParams();
 
   function closeModal() {
     setIsOpen(false)
   }
 
-  function openModal(id) {
-    if (id !== undefined) {
-      fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
-      .then(res => res.json())
-      .then(res => {
-        if(res !== undefined){
-          setUserDetail(res)
-          setIsOpen(true)
-        }
-      });
-    }
+  async function openModal(id) {
+    let response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    setUserDetail(response.data)
+    setIsOpen(true)
   }
 
+  const getUsers = async () => {
+    try {
+      let response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setUsers(response.data);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
     useEffect(() => {
-      const getUsers = () => {
-          setLoading(true);
-          fetch(`https://slrt.sumedangkab.go.id/api/kemacetan?per_page=${perPage}&current_page=${page}`)
-            .then(res => res.json())
-            .then(res => {
-              if(res !== undefined){
-                setTotalPages(res.total_pages);
-                setUsers([...users, ...res.data]);
-                setLoading(false);
-              }
-            });
-      }
-      getUsers()
-    },[page])
+        getUsers(), getUser()
+    },[identifier])
  
+
+
+
   return (
     <div className="ss:mt-8 sm:mt-16 container mx-auto justify-center">
       <div
@@ -88,15 +82,21 @@ export default function MacetRealtime() {
                 </p>
                 <div className="flex items-center mt-0.5 ">
                   <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
-                  <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">{user.waktu}</p>
+                  <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">2 Jam yang lalu</p>
                   <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
-                  <p className="text-gray-600 ss:text-sm md:text-lg">{user.id}</p>
+                  <p className="text-gray-600 ss:text-sm md:text-lg">{user.address.street}</p>
                 </div>
               </div>
             </div>
             <div className="px-8 py-6 ">
               <p className="line-clamp-4 ss:text-sm md:text-base">
-                {user.ringkas_kejadian}
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam, soluta nesciunt? Non voluptas iure unde, cupiditate
+                dicta laboriosam assumenda, earum sint nesciunt ad accusamus
+                obcaecati excepturi id maxime blanditiis quae impedit
+                repellendus molestias! Dolorem laborum soluta laboriosam id
+                praesentium fugiat, earum culpa aspernatur, animi repellat
+                ducimus porro ea, fugit sequi?
               </p>
             </div>
 
@@ -129,11 +129,12 @@ export default function MacetRealtime() {
           }
       
           <div className="container justify-center text-center">
-          {totalPages !== page && <button onClick={() => setPage(page + 1)} class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-              {loading ? 'Loading...' : 'Lihat lebih banyak'} <FontAwesomeIcon icon={faAngleDown} />
-            </button>}
+            <button class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+              Lihat lebih banyak <FontAwesomeIcon icon={faAngleDown} />
+            </button>
           </div>
       </div>
+
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
             as="div"
@@ -200,42 +201,43 @@ export default function MacetRealtime() {
                         </p>
                         <div className="flex items-center mt-0.5 ">
                         <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
-                        <p className="text-gray-600">{userDetail.waktu}</p>
+                        <p className="text-gray-600">2 Jam yang lalu</p>
                         <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
                         <p className="text-gray-600">Sumedang utara</p>
                         </div>
                     </div>
+                
                 </Dialog.Title>
+                
+
                     <div className="text-justify my-3">
-                      {ReactHtmlParser(userDetail.detail_kejadian)}
+                    <p>
+                    {user.email}
+                    </p>
                     </div>
                     <div className="ml-3">
-                    <MapContainer  center={[userDetail.latitude, userDetail.longitude]} zoom={20} scrollWheelZoom={false} style={{ height: "180px" }}>
-                      <TileLayer 
-                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                      />
-                      <Marker  position={[userDetail.latitude, userDetail.longitude]}>
-                        <Popup >
-                          Lokasi kejadian
-                        </Popup>
-                      </Marker>
-                    </MapContainer>
+                    <img src={MapModalImg} alt="" />
                     </div>
+
+            
+
                 <div className="mt-4 justify-center flex">
-                    <a
+                    <button
                     type="button"
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-green-400 border border-transparent rounded-md hover:bg-green-600 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    href={ 'https://maps.google.com/maps?q=' + userDetail.latitude + ',' + userDetail.longitude }
+                    onClick={closeModal}
                     >
                     Buka Maps
-                    </a>
+                    </button>
+
+                
+
                 </div>
                 </div>
             </Transition.Child>
             </div>
         </Dialog>
-      </Transition>
+    </Transition>
     </div>
   );
 }
