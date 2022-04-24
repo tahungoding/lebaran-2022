@@ -224,7 +224,7 @@ export default function MacetRealtime() {
                       {ReactHtmlParser(userDetail.detail_kejadian)}
                     </div>
                     <div className="ml-3">
-                    <MapContainer  center={[userDetail.latitude, userDetail.longitude]} zoom={20} scrollWheelZoom={false} style={{ height: "180px" }}>
+                    {/* <MapContainer  center={[userDetail.latitude, userDetail.longitude]} zoom={20} scrollWheelZoom={false} style={{ height: "180px" }}>
                       <TileLayer 
                       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -234,7 +234,7 @@ export default function MacetRealtime() {
                           Lokasi kejadian
                         </Popup>
                       </Marker>
-                    </MapContainer>
+                    </MapContainer> */}
                     </div>
                 <div className="mt-4 justify-center flex">
                     <a
