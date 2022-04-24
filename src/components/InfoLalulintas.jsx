@@ -56,7 +56,7 @@ export default function InfoLalulintas() {
                         }}
                     />
                 </Link>
-                <Link to="/kemacetan-realtime">
+                <Link to="linimasa">
                     <Content
                         content={{
                             img: macetRealtimeImg,
@@ -64,7 +64,7 @@ export default function InfoLalulintas() {
                         }}
                     />
                 </Link>
-                <Link to="/kecelakaan-realtime">
+                <Link to="linimasa">
                     <Content
                         content={{
                             img: kecelakaanRealtimeImg,
