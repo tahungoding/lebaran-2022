@@ -2,10 +2,10 @@ import axios from "axios";
 import { Dialog, Transition } from '@headlessui/react'
 import React, { useEffect, useState, Fragment } from "react";
 import { useParams } from 'react-router-dom'
-import ProfileImg from "../../assets/img/Profile.png";
-import JamImg from "../../assets/img/Jam.svg";
-import LokasiImg from "../../assets/img/Lokasi.svg";
-import MapModalImg from "../../assets/img/mapModal.png";
+import ProfileImg from "../../../assets/img/Profile.png";
+import JamImg from "../../../assets/img/Jam.svg";
+import LokasiImg from "../../../assets/img/Lokasi.svg";
+import MapModalImg from "../../../assets/img/mapModal.png";
 
 export default function LiniMasa() {
 

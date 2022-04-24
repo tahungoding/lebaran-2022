@@ -10,11 +10,8 @@ export default function InfoPariwisata() {
         <div className='ss:mt-8' id='pariwisata'>
             <div className="container justify-center text-center lg:text-3xl xs:text-2xl  ss:text-lg ss:-mt-4 font-sans font-medium mb-7
                 text-[#3F3D56]">
-                Informasi Pariwisata dan Bahan Pokok
-                <p className='lg:text-xl md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans leading-7 h-14 md:w-[509px] mx-auto
-                 ss:text-[12px] ss:leading-4 mt-2
-                 '>  
-                 -</p>
+                Informasi Pariwisata, Bahan Pokok dan Kedaruratan
+              
             </div>
             <div className="min-h-full flex justify-center items-center container ">
                     <div className="ss:flex-1 sm:flex-none min-w-2xl mx-auto ">
@@ -41,6 +38,30 @@ export default function InfoPariwisata() {
                             content={{
                                 img: bapoktingImg,
                                 title: "Bapokting",
+                            }}
+                        />
+                    </Link>
+                    <Link to="/kedaruratan-kesehatan">
+                        <Content
+                            content={{
+                                img: bapoktingImg,
+                                title: "Kedaruratan dan Kesehatan",
+                            }}
+                        />
+                    </Link>
+                    <Link to="/kedaruratan-bencana">
+                        <Content
+                            content={{
+                                img: bapoktingImg,
+                                title: "Kedaruratan dan Bencana",
+                            }}
+                        />
+                    </Link>
+                    <Link to="/kedaruratan-lainnya">
+                        <Content
+                            content={{
+                                img: bapoktingImg,
+                                title: "Kedaruratan Lainnya",
                             }}
                         />
                     </Link>
