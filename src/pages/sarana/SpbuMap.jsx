@@ -54,7 +54,8 @@ export default function SpbuMap() {
     return (
         <Container maxWidth="xl" style={{
             marginTop: '20px',
-            marginBottom: '20px'
+            marginBottom: '20px',
+         
         }}>
             <Typography variant="h5" component="h2">
                 Peta sebaran SPBU di Kabupaten Sumedang

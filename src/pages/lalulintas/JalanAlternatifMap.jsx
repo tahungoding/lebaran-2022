@@ -52,9 +52,10 @@ export default function jalanAlternatifMap() {
     }
 
     return (
-        <Container maxWidth="xl" style={{
+        <Container maxWidth="xl"  style={{
             marginTop: '20px',
-            marginBottom: '20px'
+            marginBottom: '20px',
+           
         }}>
             <Typography variant="h5" component="h2">
                 Rute Jalan Alternatif Kabupaten Sumedang

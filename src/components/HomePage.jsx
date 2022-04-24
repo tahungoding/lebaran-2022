@@ -8,12 +8,14 @@ import Sarana from './Sarana'
 export default function HomePage() {
     return (
         <div>
-           
+         
+
             <Hero />
             <InfoLalulintas />
             <Sarana />
             <InfoPariwisata />
             <Mitra/>
+
          
             
 
