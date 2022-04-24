@@ -25,26 +25,34 @@ export default function LiniMasa() {
     setIsOpen(false)
   }
 
-  async function openModal(id) {
-    let response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
-    setUserDetail(response.data)
-    setIsOpen(true)
+  function openModal(id) {
+    if (id !== undefined) {
+      fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
+      .then(res => res.json())
+      .then(res => {
+        if(res !== undefined){
+          setUserDetail(res)
+          setIsOpen(true)
+        }
+      });
+    }
   }
 
-    const getUsers = async () => {
-      try {
-        let response = await axios.get(
-          "https://jsonplaceholder.typicode.com/users"
-        );
-        setUsers(response.data);
-      } catch (e) {
-        console.log(e.message);
-      }
-    };
-
     useEffect(() => {
-        getUsers()
-    })
+      const getUsers = () => {
+          setLoading(true);
+          fetch(`https://slrt.sumedangkab.go.id/api/kemacetan?per_page=${perPage}&current_page=${page}`)
+            .then(res => res.json())
+            .then(res => {
+              if(res !== undefined){
+                setTotalPages(res.total_pages);
+                setUsers([...users, ...res.data]);
+                setLoading(false);
+              }
+            });
+      }
+      getUsers()
+    },[page])
  
   return (
     <div className="ss:mt-8 sm:mt-16 container mx-auto justify-center">
@@ -83,7 +91,7 @@ export default function LiniMasa() {
                             <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
                             <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">2 Jam yang lalu</p>
                             <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
-                            <p className="text-gray-600 ss:text-sm md:text-lg">{item.address.street}</p>
+                            <p className="text-gray-600 ss:text-sm md:text-lg">{item.longitude}</p>
                           </div>
                         </div>
                       </div>
