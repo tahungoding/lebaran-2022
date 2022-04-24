@@ -9,7 +9,6 @@ import DashboardAtcs from '../pages/DashboardAtcs'
 //Halaman Dev
 import DevMap from '../pages/DevMap'
 import KecelakaanRealtime from '../pages/KecelakaanRealtime'
-// import KondisiJalanMap from '../pages/KondisiJalanMap'
 import LiniMasa from '../pages/LiniMasa'
 //Informasi Lalu Lintas
 import RawanMacetMap from '../pages/RawanMacetMap'
@@ -25,9 +24,6 @@ import SpbuMap from '../pages/SpbuMap'
 import TerminalMap from '../pages/TerminalMap'
 //Informasi Pariwisata dan Bahan Pokok
 import WisataMap from '../pages/WisataMap'
-
-
-
 
 
 export default function Routing(props) {
