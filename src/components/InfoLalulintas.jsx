@@ -96,6 +96,14 @@ export default function InfoLalulintas() {
                         }}
                     />
                 </Link>
+                <Link to="/cctv-posko-terpadu">
+                    <Content
+                        content={{
+                            img: dashboardAtcsImg,
+                            title: "CCTV Posko Terpadu",
+                        }}
+                    />
+                </Link>
             </div>
             </div>
             </div>

@@ -1,29 +1,28 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import HomePage from '../components/HomePage'
-import AtmMap from '../pages/AtmMap'
-import Bapokting from '../pages/Bapokting'
-import BengkelMap from '../pages/BengkelMap'
-import Cctv from '../pages/Cctv'
-import DashboardAtcs from '../pages/DashboardAtcs'
 //Halaman Dev
 import DevMap from '../pages/DevMap'
-import KecelakaanRealtime from '../pages/KecelakaanRealtime'
-import LiniMasa from '../pages/LiniMasa'
-//Informasi Lalu Lintas
-import RawanMacetMap from '../pages/RawanMacetMap'
-import RawanKecelakaanMap from '../pages/RawanKecelakaanMap'
-import JalanAlternatifMap from '../pages/JalanAlternatifMap'
-import KondisiJalanMap from '../pages/KondisiJalanMap'
-import MacetRealtime from '../pages/MacetRealtime'
-import MasjidMap from '../pages/MasjidMap'
-import MiniMarketMap from '../pages/MiniMarketMap'
-import OleholehMap from '../pages/OleholehMap'
-//Informasi Sarana dan Prasarana
-import SpbuMap from '../pages/SpbuMap'
-import TerminalMap from '../pages/TerminalMap'
+import Cctv from '../pages/lalulintas/Cctv'
 //Informasi Pariwisata dan Bahan Pokok
-import WisataMap from '../pages/WisataMap'
+import Cctv_Posko from '../pages/lalulintas/Cctv_Posko'
+import DashboardAtcs from '../pages/lalulintas/DashboardAtcs'
+import JalanAlternatifMap from '../pages/lalulintas/JalanAlternatifMap'
+import KondisiJalanMap from '../pages/lalulintas/KondisiJalanMap'
+import LiniMasa from '../pages/lalulintas/LiniMasa'
+import RawanKecelakaanMap from '../pages/lalulintas/RawanKecelakaanMap'
+//Informasi Lalu Lintas
+import RawanMacetMap from '../pages/lalulintas/RawanMacetMap'
+import Bapokting from '../pages/pariwisata/Bapokting'
+import OleholehMap from '../pages/pariwisata/OleholehMap'
+import WisataMap from '../pages/pariwisata/WisataMap'
+import AtmMap from '../pages/sarana/AtmMap'
+import BengkelMap from '../pages/sarana/BengkelMap'
+import MasjidMap from '../pages/sarana/MasjidMap'
+import MiniMarketMap from '../pages/sarana/MiniMarketMap'
+//Informasi Sarana dan Prasarana
+import SpbuMap from '../pages/sarana/SpbuMap'
+import TerminalMap from '../pages/sarana/TerminalMap'
 
 
 export default function Routing(props) {
@@ -48,13 +47,7 @@ export default function Routing(props) {
                 <JalanAlternatifMap />
             </Route>
 
-            <Route path="/macet-realtime">
-                <MacetRealtime />
-            </Route>
-
-            <Route path="/kecelakaan-realtime">
-                <KecelakaanRealtime />
-            </Route>
+       
 
             <Route path="/kondisi-jalan">
                 <KondisiJalanMap />
@@ -66,6 +59,9 @@ export default function Routing(props) {
 
             <Route path="/dashboard-atcs">
                 <DashboardAtcs />
+            </Route>
+            <Route path="/cctv-posko-terpadu">
+                <Cctv_Posko />
             </Route>
 
             {/* sarana prasarana */}

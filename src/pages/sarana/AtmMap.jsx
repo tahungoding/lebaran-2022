@@ -1,10 +1,10 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import * as terminalData from '../../assets/data/terminal.json'
+import * as atmData from '../../../assets/data/atm.json'
 import { Container, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import * as L from "leaflet";
-import terminalIcon from '../../assets/Maps/icon/terminal.svg'
+import atmIcon from '../../../assets/Maps/icon/atm.svg'
 import { Link } from 'react-router-dom'
 
 function createIcon(url) {
@@ -14,13 +14,13 @@ function createIcon(url) {
   });
 }
 
-export default function TerminalMap() {
+export default function AtmMap() {
 
     React.useEffect(() => {
-        document.title = "Terminal - Sumedang LRT - Lebaran Realtime"
+        document.title = "ATM - Sumedang LRT - Lebaran Realtime"
      }, []);
 
-    let arr_data = terminalData.default;
+    let arr_data = atmData.default;
     let arr = []
 
     arr_data.forEach(e => {
@@ -48,7 +48,7 @@ export default function TerminalMap() {
     function getMarkerIcon(index) {
         if(index === selectedIndex)
               return createIcon("https://user-images.githubusercontent.com/1596072/85960867-3baf9700-b9af-11ea-854e-7ef6e656d447.png");
-        return createIcon(terminalIcon);
+        return createIcon(atmIcon);
       }
 
     return (
@@ -57,7 +57,7 @@ export default function TerminalMap() {
             marginBottom: '20px'
         }}>
             <Typography variant="h5" component="h2">
-                Peta sebaran Terminal di Kabupaten Sumedang
+                Peta sebaran atm di Kabupaten Sumedang
             </Typography>
             <Link to="/">
                 <Button color="success" variant="outlined" style={{
@@ -68,7 +68,7 @@ export default function TerminalMap() {
              
         </Button>
                 </Link>
-            <MapContainer center={[-6.8387022, 107.9089463]} zoom={12} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
+            <MapContainer center={[-6.8387022, 107.9089463]} zoom={15} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
