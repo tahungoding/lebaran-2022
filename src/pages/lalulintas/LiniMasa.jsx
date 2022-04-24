@@ -25,34 +25,26 @@ export default function LiniMasa() {
     setIsOpen(false)
   }
 
-  function openModal(id) {
-    if (id !== undefined) {
-      fetch(`https://reqres.in/api/users/${id}`)
-      .then(res => res.json())
-      .then(res => {
-        if(res !== undefined){
-          setUserDetail(res)
-          setIsOpen(true)
-        }
-      });
-    }
+  async function openModal(id) {
+    let response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    setUserDetail(response.data)
+    setIsOpen(true)
   }
 
-    useEffect(() => {
-      const getUsers = () => {
-          setLoading(true);
-          fetch(`https://reqres.in/api/users?per_page=${perPage}&current_page=${page}`)
-            .then(res => res.json())
-            .then(res => {
-              if(res !== undefined){
-                setTotalPages(res.total_pages);
-                setUsers([...users, ...res.data]);
-                setLoading(false);
-              }
-            });
+    const getUsers = async () => {
+      try {
+        let response = await axios.get(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        setUsers(response.data);
+      } catch (e) {
+        console.log(e.message);
       }
-      getUsers()
-    },[page])
+    };
+
+    useEffect(() => {
+        getUsers()
+    })
  
   return (
     <div className="ss:mt-8 sm:mt-16 container mx-auto justify-center">
@@ -91,7 +83,7 @@ export default function LiniMasa() {
                             <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
                             <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">2 Jam yang lalu</p>
                             <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
-                            <p className="text-gray-600 ss:text-sm md:text-lg">{item.longitude}</p>
+                            <p className="text-gray-600 ss:text-sm md:text-lg">{item.address.street}</p>
                           </div>
                         </div>
                       </div>
@@ -134,7 +126,7 @@ export default function LiniMasa() {
               }) }
       
           <div className="container justify-center text-center">
-            <button onClick={() => setPage(page + 1)} class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            <button class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
               Lihat lebih banyak <FontAwesomeIcon icon={faAngleDown} />
             </button>
           </div>
