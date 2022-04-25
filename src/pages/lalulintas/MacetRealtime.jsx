@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-export default function LiniMasa() {
+export default function MacetRealtime() {
 
   const perPage = 3;
   const [totalPages, setTotalPages] = useState(1);

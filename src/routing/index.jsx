@@ -21,6 +21,8 @@ import AtmMap from '../pages/sarana/AtmMap'
 import BengkelMap from '../pages/sarana/BengkelMap'
 import MasjidMap from '../pages/sarana/MasjidMap'
 import MiniMarketMap from '../pages/sarana/MiniMarketMap'
+import MacetRealtime from '../pages/lalulintas/MacetRealtime'
+import KecelakaanRealtime from '../pages/lalulintas/KecelakaanRealtime'
 
 //Informasi Sarana dan Prasarana
 import SpbuMap from '../pages/sarana/SpbuMap'
@@ -49,7 +51,13 @@ export default function Routing(props) {
                 <JalanAlternatifMap />
             </Route>
 
-       
+            <Route path="/macet-realtime" >
+                <MacetRealtime/>
+            </Route>
+
+            <Route path="/kecelakaan-realtime">
+                <KecelakaanRealtime />
+            </Route>
 
             <Route path="/kondisi-jalan">
                 <KondisiJalanMap />

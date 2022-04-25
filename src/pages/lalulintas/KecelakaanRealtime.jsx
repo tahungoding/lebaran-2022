@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-export default function LiniMasa() {
+export default function KecelakaanRealtime() {
 
   const perPage = 3;
   const [totalPages, setTotalPages] = useState(1);
@@ -72,7 +72,7 @@ export default function LiniMasa() {
                  ss:text-[12px] ss:leading-4 mt-2
                  "
         >
-          Update daerah macet secara realtime
+          Update daerah kecelakaan secara realtime
         </p>
       </div>
       
