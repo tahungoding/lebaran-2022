@@ -1,10 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Children, Fragment, useState } from 'react'
 import bapoktingImg from '../../../assets/img/bapokting.png'
 import CallImg from '../../../assets/img/Call.png'
 
 
-export default function Kedaruratan_Kesehatan(props) {
+export default function Kedaruratan_Kesehatan( props) {
+
+
+
   let [isOpen, setIsOpen] = useState(false)
    
 
@@ -28,7 +31,7 @@ export default function Kedaruratan_Kesehatan(props) {
                 transition duration-300 cursor-pointer hover:shadow-inner hover:shadow-green-300 md:h-[100px] md:w-[170px] sm:h-[110px] sm:w-[130px] 
                 ss:w-full ss:h-[100px] ss:mb-5 ss:flex xl:h-[220px] xl:w-[300px]
                 ">
-            <img src={bapoktingImg} alt="" className='rounded-full lg:w-20 lg:h-20 md:w-12 md:h-12 sm:w-11 sm:h-11  sm:translate-x-0 sm:-translate-y-1 ss:w-13 ss:h-13
+            <img src={props.content.img} alt="" className='rounded-full lg:w-20 lg:h-20 md:w-12 md:h-12 sm:w-11 sm:h-11  sm:translate-x-0 sm:-translate-y-1 ss:w-13 ss:h-13
             ss:translate-x-5  xl:w-24 xl:h-24
             '/>
             <div className="mx-auto ">
@@ -86,7 +89,7 @@ export default function Kedaruratan_Kesehatan(props) {
               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
             
             
-                <a href="tel:+119" className='flex text-xl justify-center cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
+                <a href={props.content.telp} className='flex text-xl justify-center cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
                 <img src={CallImg} className="mr-4"/>
                      Hubungi Sekarang
               

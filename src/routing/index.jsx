@@ -19,6 +19,7 @@ import OleholehMap from '../pages/pariwisata/OleholehMap'
 import WisataMap from '../pages/pariwisata/WisataMap'
 import AtmMap from '../pages/sarana/AtmMap'
 import BengkelMap from '../pages/sarana/BengkelMap'
+import FasilitasKesehatan from '../pages/sarana/FasilitasKesehatan'
 import MasjidMap from '../pages/sarana/MasjidMap'
 import MiniMarketMap from '../pages/sarana/MiniMarketMap'
 //Informasi Sarana dan Prasarana
@@ -84,6 +85,9 @@ export default function Routing(props) {
             </Route>
             <Route path="/terminal">
                 <TerminalMap />
+            </Route>
+            <Route path="/fasilitas-kesehatan">
+                <FasilitasKesehatan />
             </Route>
 
             {/* pariwisata */}

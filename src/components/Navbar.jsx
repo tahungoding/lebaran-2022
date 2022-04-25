@@ -2,7 +2,7 @@ import { Menu } from '@headlessui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DropdownLink from './DropdownLink';
-import logoImg from '../../assets/img/logo-letter.png'
+import logoImg from '../../assets/img/logoNew.png'
 
 
 export default function Navbar() {

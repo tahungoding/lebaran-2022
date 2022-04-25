@@ -15,9 +15,9 @@ export default function Sarana() {
             <div className="container justify-center text-center lg:text-3xl md:text-2xl font-sans font-medium
             text-[#3F3D56] ss:text-lg my-7">
                     Sarana Prasarana
-                    <p className='lg:text-xl md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans leading-7 h-14 md:w-[509px] mx-auto
+                    {/* <p className='lg:text-xl md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans leading-7 h-14 md:w-[509px] mx-auto
                      ss:text-[12px] ss:leading-4 mt-2'>  
-                     - </p>
+                     - </p> */}
                 </div>
 
 
@@ -26,7 +26,7 @@ export default function Sarana() {
                         <div className="ss:flex-1 sm:flex-none min-w-2xl mx-auto ">
 
 
-                            <div className='grid ss:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:gap-x-3 xl:grid-cols-3 xl:gap-10
+                            <div className='grid ss:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:gap-x-3 xl:grid-cols-3 xl:gap-x-12
                        lg:grid-cols-4 lg:gap-x-5 
                             '>
                                 <Link to="/spbu">
@@ -76,6 +76,15 @@ export default function Sarana() {
                                             content={{
                                                 img: terminal,
                                                 title: "Terminal"
+                                            }}
+                                        />
+                                    </Link>
+
+                                    <Link to="/fasilitas-kesehatan">
+                                        <Content
+                                            content={{
+                                                img: terminal,
+                                                title: "Fasilitas Kesehatan"
                                             }}
                                         />
                                     </Link>
