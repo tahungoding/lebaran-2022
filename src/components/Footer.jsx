@@ -9,7 +9,7 @@ export default function Footer() {
         
         <>
         <WhatsApp/>
-            <div className='bg-[#00A859] sm:h-[168px] w-full xs:h-[100px] sm:mt-12 ss:mt-5 items-center justify-center text-center inline-flex'>
+            <div className='bg-[#00A859] sm:h-[168px] w-full xs:h-[100px] sm:mt-12 ss:mt-5 items-center justify-center text-center inline-flex '>
                 <div className='inline-grid text-center'>
                     <p className='font-sans sm:text-base font-bold text-white font xs:text-[11px] ss:text-[11px] ss:mt-4 sm:mt-2'>
                         <span className='font-sans font-light text-white md:text-base sm:text-sm xs:text-[11px]'>Build with passion by </span>

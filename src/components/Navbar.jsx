@@ -20,9 +20,9 @@ export default function Navbar() {
             <div className="items-center md:text-base text-gray-500 font-sans lg:text-xl xl:text-2xl space-x-8 lg:flex xl:space-x-11 cursor-pointer xs:space-x-4 xm:invisible xs:visible ss:invisible">
 
 
-            <Link to="linimasa" className="hover:text-green-600 anchor-link" >Lalu Lintas</Link>
+            <a href="#infolalulintas" className="hover:text-green-600 anchor-link" >Lalu Lintas</a>
 
-                <Link to="prasarana" className="hover:text-green-600 ">Sarana Prasarana</Link>
+                <a href="#sarana" className="hover:text-green-600 ">Sarana Prasarana</a>
 
                 <a  href="#pariwisata"  className="hover:text-green-600">Pariwisata</a>
 
@@ -42,21 +42,21 @@ export default function Navbar() {
                     <Menu.Items as={'div'} className="bg-white absolute -left-48 -top-5 py-1 rounded-lg w-56 overflow-hidden mt-8 shadow-xl z-50">
 
 
-                        <DropdownLink href="#">
+                        <DropdownLink href="#infolalulintas">
 
 
                             Informasi Lalulintas
 
 
                         </DropdownLink>
-                        <DropdownLink href="#" className="border-t-[1px] text-gray-700 hover:text-black block px-4 py-2 text-sm hover:bg-gray-100 justify-end border-b-[1px]">
+                        <DropdownLink href="#sarana" className="border-t-[1px] text-gray-700 hover:text-black block px-4 py-2 text-sm hover:bg-gray-100 justify-end border-b-[1px]">
 
 
                             Sarana
 
 
                         </DropdownLink>
-                        <DropdownLink href="#">
+                        <DropdownLink href="#pariwisata">
 
 
                             Pariwisata

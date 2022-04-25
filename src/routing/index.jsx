@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import HomePage from '../components/HomePage'
+import Nav from '../components/Nav'
 //Halaman Dev
 import DevMap from '../pages/DevMap'
 import Cctv from '../pages/lalulintas/Cctv'
@@ -34,68 +35,84 @@ export default function Routing(props) {
                 <HomePage />
             </Route>
            
-
             {/* informasi lalulintas */}
 
             <Route path="/rawan-macet" >
+            <Nav/>
                 <RawanMacetMap/>
+           
             </Route>
 
             <Route path="/rawan-kecelakaan">
+            <Nav/>
                 <RawanKecelakaanMap />
             </Route>
 
             <Route path="/jalan-alternatif">
+            <Nav/>
                 <JalanAlternatifMap />
             </Route>
 
        
 
             <Route path="/kondisi-jalan">
+                <Nav/>
                 <KondisiJalanMap />
             </Route>
 
             <Route path="/cctv">
+                <Nav/>
                 <Cctv />
             </Route>
 
             <Route path="/dashboard-atcs">
+                <Nav/>
                 <DashboardAtcs />
             </Route>
             <Route path="/cctv-posko-terpadu">
+                <Nav/>
                 <Cctv_Posko />
             </Route>
 
             {/* sarana prasarana */}
 
             <Route path="/spbu">
+                <Nav/>
                 <SpbuMap />
             </Route>
             <Route path="/bengkel">
+                <Nav/>
                 <BengkelMap />
             </Route>
             <Route path="/minimarket">
+                <Nav/>
                 <MiniMarketMap />
             </Route>
             <Route path="/atm">
+                <Nav/>
                 <AtmMap />
             </Route>
             <Route path="/masjid">
+                <Nav/>
                 <MasjidMap />
             </Route>
             <Route path="/terminal">
+                <Nav/>
                 <TerminalMap />
             </Route>
             <Route path="/fasilitas-kesehatan">
+                <Nav/>
                 <FasilitasKesehatan />
             </Route>
 
             {/* pariwisata */}
 
             <Route path="/wisata">
+                <Nav/>
                 <WisataMap />
             </Route>
             <Route path="/oleh-oleh">
+                <Nav/>
                 <OleholehMap />
             </Route>
             <Route path="/bapokting">
@@ -113,6 +130,7 @@ export default function Routing(props) {
 
             {/* Linimasa  */}
             <Route path="/linimasa">
+                <Nav/>
                 <LiniMasa/>
             </Route>
 
