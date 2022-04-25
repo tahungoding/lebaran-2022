@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom'
 import ProfileImg from "../../../assets/img/Profile.png";
 import JamImg from "../../../assets/img/Jam.svg";
 import LokasiImg from "../../../assets/img/Lokasi.svg";
-import MapModalImg from "../../../assets/img/mapModal.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
@@ -31,7 +30,7 @@ export default function KecelakaanRealtime() {
   }
 
   function openModal(id) {
-    fetch(`https://slrt.sumedangkab.go.id/api/kemacetan/detail/${id}`)
+    fetch(`https://slrt.sumedangkab.go.id/api/kecelakaan/detail/${id}`)
     .then(res => res.json())
     .then(res => {
       setUserDetail(res)
@@ -42,7 +41,7 @@ export default function KecelakaanRealtime() {
   const getUsers = () => {
     try {
       setLoading(true);
-      fetch(`https://slrt.sumedangkab.go.id/api/kemacetan?per_page=${perPage}&current_page=${page}`)
+      fetch(`https://slrt.sumedangkab.go.id/api/kecelakaan?per_page=${perPage}&current_page=${page}`)
         .then(res => res.json())
         .then(res => {
           setTotalPages(res.total_pages);
@@ -89,7 +88,7 @@ export default function KecelakaanRealtime() {
               <img
                 className="w-10 h-10 rounded-full mx-4 mr-6"
                 src={ProfileImg}
-                alt="Avatar of Jonathan Reinink"
+                alt=""
               />
               <div className="text-sm">
                 <p className="text-gray-900 leading-none text-xl font-semibold ss:text-sm md:text-lg">
