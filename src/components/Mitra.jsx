@@ -4,6 +4,7 @@ import DprdImg from '../../assets/img/logo-dprd.png'
 import PolisiImg from '../../assets/img/logopolisi.png'
 import SmdImg from '../../assets/img/logosmd.png'
 import TniImg from '../../assets/img/TNI.jpg'
+import PNImg from '../../assets/img/logoMA.png'
 
 
 export default function Mitra() {
@@ -19,6 +20,7 @@ export default function Mitra() {
                      <img src={KejaksaanImg} alt="" className='lg:h-28 lg:w-28 ss:h-12 ss:w-12 md:h-16 md:w-16  transition duration-200 opacity-60 hover:contrast-100  hover:opacity-100 hover:scale-110' />
                      <img src={SmdImg} alt="" className='lg:h-28 lg:w-28  ss:h-12 ss:w-12 md:h-16 md:w-16 transition duration-200 opacity-60 hover:contrast-100  hover:opacity-100 hover:scale-110' />
                      <img src={DprdImg} alt="" className='lg:h-28 lg:w-28  ss:h-12 ss:w-12 md:h-16 md:w-16 transition duration-200 opacity-60 hover:contrast-100  hover:opacity-100 hover:scale-110' />
+                     <img src={PNImg} alt="" className='lg:h-28 lg:w-28  ss:h-12 ss:w-12 md:h-16 md:w-16 transition duration-200 opacity-60 hover:contrast-100  hover:opacity-100 hover:scale-110' />
                  </div>
 
               </div>

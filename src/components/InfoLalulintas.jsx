@@ -8,6 +8,8 @@ import kondisiJalan from '../../assets/img/kondisijalan.png'
 import macetRealtimeImg from '../../assets/img/macet-realtime.png'
 import kecelakaanRealtimeImg from '../../assets/img/kecelakaan-realtime.png'
 import cctvImg from '../../assets/img/cctv.png'
+import poskoTerpadu from '../../assets/img/poskoTerpadu.png'
+
 import dashboardAtcsImg from '../../assets/img/dashboard-atcs.png'
 
 export default function InfoLalulintas() {
@@ -17,10 +19,10 @@ export default function InfoLalulintas() {
             <div className="container justify-center text-center lg:text-3xl xs:text-2xl  ss:text-lg ss:-mt-4 font-sans font-medium mb-7
                 text-[#3F3D56]">
                 Informasi Lalu lintas
-                <p className='lg:text-xl md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans leading-7 h-14 md:w-[509px] mx-auto
+                {/* <p className='lg:text-xl md:text-base sm:text-sm xs:text-[12px] xs:w-72 xs:leading-4  text-[#8B8B8B] font-sans leading-7 h-14 md:w-[509px] mx-auto
                  ss:text-[12px] ss:leading-4 mt-2
                  '>  
-                 -</p>
+                 -</p> */}
 
             </div>
 
@@ -99,7 +101,7 @@ export default function InfoLalulintas() {
                 <Link to="/cctv-posko-terpadu">
                     <Content
                         content={{
-                            img: dashboardAtcsImg,
+                            img: poskoTerpadu,
                             title: "CCTV Posko Terpadu",
                         }}
                     />
