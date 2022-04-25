@@ -11,6 +11,9 @@
     "dependencies": {
         "@emotion/react": "^11.9.0",
         "@emotion/styled": "^11.8.1",
+        "@fortawesome/fontawesome-svg-core": "^6.1.1",
+        "@fortawesome/free-solid-svg-icons": "^6.1.1",
+        "@fortawesome/react-fontawesome": "^0.1.18",
         "@headlessui/react": "^1.5.0",
         "@mui/icons-material": "^5.6.2",
         "@mui/lab": "^5.0.0-alpha.78",
@@ -21,7 +24,10 @@
         "leaflet-routing-machine": "^3.2.12",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-html-parser": "^2.0.2",
         "react-leaflet": "3.2.0",
+        "react-leaflet-cluster": "^1.0.3",
+        "react-leaflet-markercluster": "^3.0.0-rc1",
         "react-router-dom": "^5.2.0",
         "react-transition-group": "^4.4.2",
         "swiper": "^8.1.1"

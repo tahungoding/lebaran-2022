@@ -28,13 +28,17 @@ export default function RawanMacetMap() {
             namaJalan: null, 
             lat: null,
             lng: null,
-            address: null
+            address: null,
+            anatomiKerawanan : [],
+            upayaYangDilaksanakan : []
         }
         if (e.location !== null) {
             temp.namaJalan = e.namaJalan
             temp.lat = e.location.lat
             temp.lng = e.location.lng
             temp.address = e.address
+            temp.anatomiKerawanan = e.anatomiKerawanan
+            temp.upayaYangDilaksanakan = e.upayaYangDilaksanakan
             arr.push(temp)
         }
     });
@@ -81,7 +85,19 @@ export default function RawanMacetMap() {
                     onclick={handleClick}
                     >
                         <Popup>
-                            <b>{marker.namaJalan}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
+                            <h1 style={{fontWeight: "bold"}}>{marker.namaJalan}</h1> <br/> 
+                            <b>Anatomi Kerawanan</b> : {marker.anatomiKerawanan.map(item => (  
+                            <li>  
+                                {item}  
+                            </li>  
+                            ))}
+                            <br/>
+                            <b>Upaya yang dilaksanakan</b> : {marker.upayaYangDilaksanakan.map(item => (  
+                            <li>  
+                                {item}  
+                            </li>  
+                            ))}
+                            <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
                         </Popup>
                     </Marker>
                 ))}

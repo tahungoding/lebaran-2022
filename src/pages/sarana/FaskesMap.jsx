@@ -1,11 +1,11 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import MarkerClusterGroup from 'react-leaflet-markercluster'
-import * as minimarketData from '../../../assets/data/minimarket.json'
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+import * as faskesData from '../../../assets/data/faskes.json'
 import { Container, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import * as L from "leaflet";
-import minimarketIcon from '../../../assets/Maps/icon/minimarket.svg'
+import faskesIcon from '../../../assets/Maps/icon/faskes.svg'
 import { Link } from 'react-router-dom'
 
 function createIcon(url) {
@@ -15,13 +15,13 @@ function createIcon(url) {
   });
 }
 
-export default function MinimarketMap() {
+export default function FaskesMap() {
 
     React.useEffect(() => {
-        document.title = "Mini Market - Sumedang LRT - Lebaran Realtime"
+        document.title = "Fasilitas Kesehatan - Sumedang LRT - Lebaran Realtime"
      }, []);
 
-    let arr_data = minimarketData.default;
+    let arr_data = faskesData.default;
     let arr = []
 
     arr_data.forEach(e => {
@@ -49,7 +49,7 @@ export default function MinimarketMap() {
     function getMarkerIcon(index) {
         if(index === selectedIndex)
               return createIcon("https://user-images.githubusercontent.com/1596072/85960867-3baf9700-b9af-11ea-854e-7ef6e656d447.png");
-        return createIcon(minimarketIcon);
+        return createIcon(faskesIcon);
       }
 
     return (
@@ -58,37 +58,37 @@ export default function MinimarketMap() {
             marginBottom: '20px'
         }}>
             <Typography variant="h5" component="h2">
-                Peta sebaran Minimarket di Kabupaten Sumedang
+                Peta sebaran fasilitas kesehatan di Kabupaten Sumedang
             </Typography>
             <Link to="/">
                 <Button color="success" variant="outlined" style={{
             marginTop: '20px',
             marginBottom: '20px'
-        }}>
-<HomeIcon/>
+                }}>
+        <HomeIcon/>
              
         </Button>
                 </Link>
-            <MapContainer className='markercluster-map' center={[-6.8387022, 107.9089463]} zoom={14} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
+            <MapContainer className="markercluster-map" center={[-6.8387022, 107.9089463]} zoom={15} maxZoom={18} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <MarkerClusterGroup
+                    <MarkerClusterGroup
                     spiderfyDistanceMultiplier={1}
                     showCoverageOnHover={false}
                   >
                 {arr.map((marker, i) => (
-                    <Marker 
-                    key={i} 
-                    position={[marker.lat, marker.lng]}
-                    icon={getMarkerIcon(i)}
-                    onclick={handleClick}
-                    >
-                        <Popup>
-                            <b>{marker.title}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
-                        </Popup>
-                    </Marker>
+                        <Marker 
+                        key={i} 
+                        position={[marker.lat, marker.lng]}
+                        icon={getMarkerIcon(i)}
+                        onclick={handleClick}
+                        >
+                            <Popup>
+                                <b>{marker.title}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
+                            </Popup>
+                        </Marker>
                 ))}
                 </MarkerClusterGroup>
             </MapContainer>
