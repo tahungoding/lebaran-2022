@@ -90,21 +90,27 @@ export default function Kedaruratan_Lainnya( props) {
             
             
                 <div>
-                  <a href="tel:0261201230" className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
+                  <a href={props.content.telp1} className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
                   <img src={CallImg} className="mr-4 ml-10"/>
-                       Polres Sumedang
+                  {props.content.lay1}
                         </a>
                 </div>
                 <div className='mt-4'>
-                  <a href="tel:0261201228" className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
+                  <a href={props.content.telp2} className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
                   <img src={CallImg} className="mr-4 ml-10"/>
-                       Polsek Sumedang Utara
+                  {props.content.lay2}
                         </a>
                 </div>
                 <div className='mt-4'>
-                  <a href="tel:0261208719" className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
+                  <a href={props.content.telp3} className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
                   <img src={CallImg} className="mr-4 ml-10"/>
-                       Polsek Paseh
+                  {props.content.lay3}
+                        </a>
+                </div>
+                <div className='mt-4'>
+                  <a href={props.content.telp4} className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
+                  <img src={CallImg} className="mr-4 ml-10"/>
+                  {props.content.lay4}
                         </a>
                 </div>
 
