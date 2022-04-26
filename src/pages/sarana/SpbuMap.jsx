@@ -1,5 +1,6 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import * as spbuData from '../../../assets/data/spbu.json'
 import { Container, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
@@ -69,11 +70,15 @@ export default function SpbuMap() {
              
         </Button>
                 </Link>
-            <MapContainer center={[-6.8387022, 107.9089463]} zoom={12} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
+            <MapContainer className='markercluster-map' center={[-6.8387022, 107.9089463]} zoom={12} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+                <MarkerClusterGroup
+                    spiderfyDistanceMultiplier={1}
+                    showCoverageOnHover={false}
+                  >
                 {arr.map((marker, i) => (
                     <Marker 
                     key={i} 
@@ -86,6 +91,7 @@ export default function SpbuMap() {
                         </Popup>
                     </Marker>
                 ))}
+                </MarkerClusterGroup>
             </MapContainer>
         </Container>
     )

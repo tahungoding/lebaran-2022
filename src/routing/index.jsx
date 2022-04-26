@@ -20,9 +20,12 @@ import OleholehMap from '../pages/pariwisata/OleholehMap'
 import WisataMap from '../pages/pariwisata/WisataMap'
 import AtmMap from '../pages/sarana/AtmMap'
 import BengkelMap from '../pages/sarana/BengkelMap'
-import FasilitasKesehatan from '../pages/sarana/FasilitasKesehatan'
+import FaskesMap from '../pages/sarana/FaskesMap'
 import MasjidMap from '../pages/sarana/MasjidMap'
 import MiniMarketMap from '../pages/sarana/MiniMarketMap'
+import MacetRealtime from '../pages/lalulintas/MacetRealtime'
+import KecelakaanRealtime from '../pages/lalulintas/KecelakaanRealtime'
+
 //Informasi Sarana dan Prasarana
 import SpbuMap from '../pages/sarana/SpbuMap'
 import TerminalMap from '../pages/sarana/TerminalMap'
@@ -53,7 +56,13 @@ export default function Routing(props) {
                 <JalanAlternatifMap />
             </Route>
 
-       
+            <Route path="/macet-realtime" >
+                <MacetRealtime/>
+            </Route>
+
+            <Route path="/kecelakaan-realtime">
+                <KecelakaanRealtime />
+            </Route>
 
             <Route path="/kondisi-jalan">
                 <Nav/>
@@ -102,7 +111,7 @@ export default function Routing(props) {
             </Route>
             <Route path="/fasilitas-kesehatan">
                 <Nav/>
-                <FasilitasKesehatan />
+                <FaskesMap />
             </Route>
 
             {/* pariwisata */}
@@ -133,11 +142,6 @@ export default function Routing(props) {
                 <Nav/>
                 <LiniMasa/>
             </Route>
-
-           
-
-          
-          
 
         </Switch>
     )

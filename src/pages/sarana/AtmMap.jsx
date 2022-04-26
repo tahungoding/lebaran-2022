@@ -1,5 +1,6 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import * as atmData from '../../../assets/data/atm.json'
 import { Container, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
@@ -63,28 +64,33 @@ export default function AtmMap() {
                 <Button color="success" variant="outlined" style={{
             marginTop: '20px',
             marginBottom: '20px'
-        }}>
-<HomeIcon/>
+                }}>
+        <HomeIcon/>
              
         </Button>
                 </Link>
-            <MapContainer center={[-6.8387022, 107.9089463]} zoom={15} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
+            <MapContainer className="markercluster-map" center={[-6.8387022, 107.9089463]} zoom={15} maxZoom={18} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+                    <MarkerClusterGroup
+                    spiderfyDistanceMultiplier={1}
+                    showCoverageOnHover={false}
+                  >
                 {arr.map((marker, i) => (
-                    <Marker 
-                    key={i} 
-                    position={[marker.lat, marker.lng]}
-                    icon={getMarkerIcon(i)}
-                    onclick={handleClick}
-                    >
-                        <Popup>
-                            <b>{marker.title}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
-                        </Popup>
-                    </Marker>
+                        <Marker 
+                        key={i} 
+                        position={[marker.lat, marker.lng]}
+                        icon={getMarkerIcon(i)}
+                        onclick={handleClick}
+                        >
+                            <Popup>
+                                <b>{marker.title}</b> <br/> {marker.address}  <br /> <small>Lihat di <a target="_blank" href={ 'https://maps.google.com/maps?q=' + marker.lat + ',' + marker.lng }>google maps</a></small>
+                            </Popup>
+                        </Marker>
                 ))}
+                </MarkerClusterGroup>
             </MapContainer>
         </Container>
     )

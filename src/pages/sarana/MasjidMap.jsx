@@ -1,9 +1,10 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import MarkerClusterGroup from 'react-leaflet-markercluster'
 import * as masjidData from '../../../assets/data/masjid.json'
-import { Container, Button, Typography } from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
-import * as L from "leaflet";
+import { Container, Button, Typography } from '@mui/material'
+import HomeIcon from '@mui/icons-material/Home'
+import * as L from "leaflet"
 import masjidIcon from '../../../assets/Maps/icon/masjid.svg'
 import { Link } from 'react-router-dom'
 
@@ -68,11 +69,15 @@ export default function MasjidMap() {
              
         </Button>
                 </Link>
-            <MapContainer center={[-6.8387022, 107.9089463]} zoom={15} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
+            <MapContainer className='markercluster-map' center={[-6.8387022, 107.9089463]} zoom={15} scrollWheelZoom={false} id="mapid" style={{ height: "100vh" }}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+                <MarkerClusterGroup
+                    spiderfyDistanceMultiplier={1}
+                    showCoverageOnHover={false}
+                  >
                 {arr.map((marker, i) => (
                     <Marker 
                     key={i} 
@@ -85,6 +90,7 @@ export default function MasjidMap() {
                         </Popup>
                     </Marker>
                 ))}
+                </MarkerClusterGroup>
             </MapContainer>
         </Container>
     )
