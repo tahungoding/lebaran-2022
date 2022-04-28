@@ -27,8 +27,9 @@ export default function Sarana() {
 
 
                             <div className='grid ss:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:gap-x-3 xl:grid-cols-3 xl:gap-x-12
-                       lg:grid-cols-4 lg:gap-x-5 
-                            '>
+                       lg:grid-cols-3 lg:gap-x-5 2xl:grid-cols-5 2xl:gap-x-12
+                            '
+                            >
                                 <Link to="/spbu">
                                     <Content
                                         content={{

@@ -9,8 +9,10 @@ import Cctv from '../pages/lalulintas/Cctv'
 import Cctv_Posko from '../pages/lalulintas/Cctv_Posko'
 import DashboardAtcs from '../pages/lalulintas/DashboardAtcs'
 import JalanAlternatifMap from '../pages/lalulintas/JalanAlternatifMap'
+import KecelakaanRealtime from '../pages/lalulintas/KecelakaanRealtime'
 import KondisiJalanMap from '../pages/lalulintas/KondisiJalanMap'
 import LiniMasa from '../pages/lalulintas/LiniMasa'
+import MacetRealtime from '../pages/lalulintas/MacetRealtime'
 import RawanKecelakaanMap from '../pages/lalulintas/RawanKecelakaanMap'
 //Informasi Lalu Lintas
 import RawanMacetMap from '../pages/lalulintas/RawanMacetMap'
@@ -23,12 +25,10 @@ import BengkelMap from '../pages/sarana/BengkelMap'
 import FaskesMap from '../pages/sarana/FaskesMap'
 import MasjidMap from '../pages/sarana/MasjidMap'
 import MiniMarketMap from '../pages/sarana/MiniMarketMap'
-import MacetRealtime from '../pages/lalulintas/MacetRealtime'
-import KecelakaanRealtime from '../pages/lalulintas/KecelakaanRealtime'
-
 //Informasi Sarana dan Prasarana
 import SpbuMap from '../pages/sarana/SpbuMap'
 import TerminalMap from '../pages/sarana/TerminalMap'
+
 
 
 export default function Routing(props) {
@@ -57,10 +57,12 @@ export default function Routing(props) {
             </Route>
 
             <Route path="/macet-realtime" >
+            <Nav/>
                 <MacetRealtime/>
             </Route>
 
             <Route path="/kecelakaan-realtime">
+            <Nav/>
                 <KecelakaanRealtime />
             </Route>
 
@@ -130,6 +132,8 @@ export default function Routing(props) {
             <Route path="/kedaruratan-kesehatan">
                 <Kedaruratan_Kesehatan />
             </Route>
+
+         
 
             {/* development */}
 

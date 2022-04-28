@@ -1,7 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Children, Fragment, useState } from 'react'
 import bapoktingImg from '../../../assets/img/bapokting.png'
-import CallImg from '../../../assets/img/Call.png'
 
 
 export default function Kedaruratan_Kesehatan( props) {
@@ -90,8 +89,8 @@ export default function Kedaruratan_Kesehatan( props) {
             
             
                 <a href={props.content.telp} className='flex text-xl justify-center cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
-                <img src={CallImg} className="mr-4"/>
-                     Hubungi Sekarang
+                <img src={props.content.image} className="mr-4 h-10 w-10"/>
+                    {props.content.hubungi}
               
                       </a>
                

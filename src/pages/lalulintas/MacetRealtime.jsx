@@ -99,7 +99,7 @@ export default function MacetRealtime() {
                   <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
                   <p className="text-gray-600 ss:text-sm sm:text-base md:text-lg">{user.waktu}</p>
                   <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
-                  <p className="text-gray-600 ss:text-sm md:text-lg">Sumedang Utara</p>
+                  <p className="text-gray-600 ss:text-sm md:text-lg">{user.lokasi}</p>
                 </div>
               </div>
             </div>
@@ -214,7 +214,7 @@ export default function MacetRealtime() {
                         <img src={JamImg} alt="" className="h-3 w-3 mr-2" />
                         <p className="text-gray-600">{userDetail.waktu}</p>
                         <img src={LokasiImg} alt="" className="h-3 w-3 mx-1" />
-                        <p className="text-gray-600">Sumedang utara</p>
+                        <p className="text-gray-600">{userDetail.lokasi}</p>
                         </div>
                     </div>
                 

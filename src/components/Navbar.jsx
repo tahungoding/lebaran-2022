@@ -2,7 +2,7 @@ import { Menu } from '@headlessui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DropdownLink from './DropdownLink';
-import logoImg from '../../assets/img/logoNew.png'
+import logoImg from '../../assets/img/LOGO.svg'
 
 
 export default function Navbar() {
@@ -12,8 +12,8 @@ export default function Navbar() {
         <nav className="flex justify-center py-4 bg-white drop-shadow-lg  relative xs:h-14 xl:h-16 2xl:h-24 w-full">
             <div className="flex items-center">
                 <Link to="/">
-                    <img src={logoImg} alt="" className='absolute lg:left-28 md:top-2 md:left-6 sm:left-4 sm:top-0.5 xs:left-5 xs:h-7 xs:w-20 xs:top-3 xm:top-2 xm:h-10 xm:left-8 ss:h-10 ss:top-2
-                    md:h-10 md:w-auto lg:h-12 lg:top-1 lg:w-auto xl:h-12 xl:w-auto xl:top-2 2xl:h-20' />
+                    <img src={logoImg} alt="" className='absolute lg:left-28 md:top-1 md:left-6 sm:left-4 sm:top-0.5 xs:left-5 xs:h-7 xs:w-20 xs:top-3 xm:top-1 xm:h-10 xm:left-8 ss:h-10 ss:top-1
+                    md:h-10 md:w-auto lg:h-12 lg:top-1 lg:w-auto xl:h-14 xl:w-auto xl:top-1 2xl:h-20' />
 
                 </Link>
             </div>

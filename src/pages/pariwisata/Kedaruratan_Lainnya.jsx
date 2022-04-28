@@ -92,29 +92,25 @@ export default function Kedaruratan_Lainnya( props) {
                 <div>
                   <a href={props.content.telp1} className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
                   <img src={CallImg} className="mr-4 ml-10"/>
-                       
-                       {props.content.lay1}
+                  {props.content.lay1}
                         </a>
                 </div>
                 <div className='mt-4'>
                   <a href={props.content.telp2} className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
                   <img src={CallImg} className="mr-4 ml-10"/>
-                      
-                       {props.content.lay2}
+                  {props.content.lay2}
                         </a>
                 </div>
                 <div className='mt-4'>
                   <a href={props.content.telp3} className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
                   <img src={CallImg} className="mr-4 ml-10"/>
-                    
-                       {props.content.lay3}
+                  {props.content.lay3}
                         </a>
                 </div>
                 <div className='mt-4'>
                   <a href={props.content.telp4} className='flex text-xl justify-left hover:bg-[#07693b] cursor-pointer items-center bg-[#00A859] rounded-xl p-3 text-white font-semibold'>
                   <img src={CallImg} className="mr-4 ml-10"/>
-                     
-                       {props.content.lay4}
+                  {props.content.lay4}
                         </a>
                 </div>
 
