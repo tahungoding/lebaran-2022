@@ -8,6 +8,8 @@ import KesehatanImg from "../../assets/img/DaruratKesehatan.png";
 import LainnyaImg from "../../assets/img/DaruratLainnya.png";
 import GoogleImg from "../../assets/img/googleplay.png";
 import CallImg from '../../assets/img/Call.png'
+import Pocadik from '../../assets/img/Pocadik.png'
+import PolresIcon from '../../assets/img/PolresIcon.png'
 
 import { Link } from "react-router-dom";
 import Kedaruratan_Kesehatan from "../pages/pariwisata/Kedaruratan_Kesehatan";
@@ -60,7 +62,7 @@ export default function InfoPariwisata() {
             <Kedaruratan_Kesehatan
               content={{
                   judul: "POCADIK",
-                  img: KesehatanImg,
+                  img: Pocadik,
                   hubungi: "Get In Google Play",
                   image : GoogleImg,
                   telp: "https://play.google.com/store/apps/details?id=mam.reader.isumedang",
@@ -126,7 +128,7 @@ export default function InfoPariwisata() {
                 lay2 : "Polsek Sumedang Utara",
                 lay3 : "Polsek Paseh",
                 lay4 : "Polsek Sumedang Selatan",
-                img: LainnyaImg,
+                img: PolresIcon,
                 title: "Layanan Polisi",
                 desk: "Layanan 24 jam Polisi wilayah sumedang",
              
