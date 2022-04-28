@@ -102,6 +102,7 @@ export default function InfoPariwisata() {
 <Kedaruratan_Lainnya
               content={{
                 judul: "Kedaruratan Lainna",
+<<<<<<< HEAD
                 telp1 : "tel:110",
                 telp2 : "tel:113",
                 telp3 : "tel:123",
@@ -113,14 +114,32 @@ export default function InfoPariwisata() {
                 img: LainnyaImg,
                 title: "Layanan kedaruratan lainnya",
                 desk: "Layanan 24 jam kedaruratan",
+=======
+                telp1 : "tel:112",
+                telp2 : "tel:123",
+                telp3 : "tel:119",
+                telp4 : "tel:122",
+                lay1: "Pemadam Kebakaran",
+                lay2: "PLN",
+                lay3: "Hotline Covid-19",
+                lay4: "Posko Kewaspadaan Nasional",
+                img: LainnyaImg,
+                title: "Info Layanan kedaruratan lainnya",
+                desk: "Menu layanan kedaruratan lainnya",
+>>>>>>> 16f32f213e4c487ca8ff35cc9b58e93d938f321c
              
               }}
            
             />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 16f32f213e4c487ca8ff35cc9b58e93d938f321c
 <Kedaruratan_Lainnya
               content={{
                 judul: "Layanan Polres Sumedang",
                 telp1 : "tel:0261201230",
+<<<<<<< HEAD
                 telp2 : "tel:0261201228",
                 telp3 : "tel:0261208719",
                 telp4 : "tel:0261207010",
@@ -131,6 +150,18 @@ export default function InfoPariwisata() {
                 img: PolresIcon,
                 title: "Layanan Polisi",
                 desk: "Layanan 24 jam Polisi wilayah sumedang",
+=======
+                telp2 : "tel:0261208719",
+                telp3 : "tel:0261201228",
+                telp4 : "tel:0261207010",
+                lay1: "POLRES SUMEDANG",
+                lay2: "Polsek Paseh",
+                lay3: "Polsek Sumedang Utara",
+                lay4: "Polsek Sumedang Selatan",
+                img: LainnyaImg,
+                title: "Menu layanan call centre Polres Sumedang",
+                desk: "",
+>>>>>>> 16f32f213e4c487ca8ff35cc9b58e93d938f321c
              
               }}
            
